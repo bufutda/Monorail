@@ -1,0 +1,6 @@
+# System files
+.DS_Store
+.swp
+
+# Node
+node_modules/*
