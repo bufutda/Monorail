@@ -1,0 +1,15 @@
+{
+  "name": "monorail-api",
+  "version": "0.0.1",
+  "description": "Database API for Project Monorail",
+  "author": "Mitchell Sawatzky <saw@tzky.ca>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bufutda/monorail"
+  },
+  "license": "GPL-3.0",
+  "dependencies": {
+    "node-getopt": "0.2.3",
+    "mysql": "2.12.0"
+  }
+}

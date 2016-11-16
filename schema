@@ -1,0 +1,108 @@
+CREATE TABLE mrdb.Stop (
+    No int NOT NULL UNIQUE,
+    Location varchar(255) NOT NULL,
+    rID int NOT NULL,
+    PRIMARY KEY (No),
+    FOREIGN KEY (rID) REFERENCES Route(ID)
+);
+
+CREATE TABLE mrdb.Train (
+    ID int NOT NULL UNIQUE,
+    Num_cars int NOT NULL,
+    PRIMARY KEY (ID),
+    FOREIGN KEY (ID) REFERENCES Vehicle(ID),
+    CHECK (Num_cars < 5),
+    CHECK (Num_cars > 2)
+);
+
+CREATE TABLE mrdb.Bus (
+    ID int NOT NULL UNIQUE,
+    Plate varchar(255) NOT NULL UNIQUE,
+    Length int NOT NULL,
+    PRIMARY KEY (ID),
+    FOREIGN KEY (ID) REFERENCES Vehicle(ID)
+);
+
+CREATE TABLE mrdb.Delay (
+    ID int NOT NULL UNIQUE,
+    Origin varchar(255) NOT NULL,
+    Description varchar(255),
+    dStart int NOT NULL,
+    dEnd int,
+    sNo int NOT NULL,
+    PRIMARY KEY (ID),
+    FOREIGN KEY (sNo) REFERENCES Stop(No)
+);
+
+CREATE TABLE mrdb.Route (
+    ID int NOT NULL UNIQUE,
+    rStart int NOT NULL,
+    rEnd int NOT NULL,
+    Num_stops int NOT NULL,
+    PRIMARY KEY (ID),
+    FOREIGN KEY (rStart) REFERENCES Stop(No),
+    FOREIGN KEY (rEnd) REFERENCES Stop(No)
+);
+
+CREATE TABLE mrdb.Maintenance (
+    dID int NOT NULL UNIQUE,
+    PRIMARY KEY (dID),
+    FOREIGN KEY (dID) REFERENCES Delay(ID)
+);
+
+CREATE TABLE mrdb.Environmental (
+    dID int NOT NULL UNIQUE,
+    Type varchar(255) NOT NULL,
+    PRIMARY KEY (dID),
+    FOREIGN KEY (dID) REFERENCES Delay(ID)
+);
+
+CREATE TABLE mrdb.Accident (
+    dID int NOT NULL UNIQUE,
+    Cause varchar(255) NOT NULL,
+    PRIMARY KEY (dID),
+    FOREIGN KEY (dID) REFERENCES Delay(ID)
+);
+
+CREATE TABLE mrdb.Other (
+    dID int NOT NULL UNIQUE,
+    PRIMARY KEY (dID),
+    FOREIGN KEY (dID) REFERENCES Delay(ID)
+);
+
+CREATE TABLE mrdb.Lays_Between (
+    Prev_no int NOT NULL,
+    Next_no int NOT NULL,
+    PRIMARY KEY (Prev_no,Next_no),
+    FOREIGN KEY (Prev_no) REFERENCES Stop(No),
+    FOREIGN KEY (Next_no) REFERENCES Stop(No),
+    UNIQUE KEY uPN (Prev_no,Next_no)
+);
+
+CREATE TABLE mrdb.Arrives_At (
+    vID int NOT NULL,
+    sNo int NOT NULL,
+    Time int NOT NULL,
+    PRIMARY KEY (vId,sNo),
+    FOREIGN KEY (vId) REFERENCES Vehicle(ID),
+    FOREIGN KEY (sNo) REFERENCES Stop(No),
+    UNIQUE KEY uVS (vID,sNo)
+);
+
+CREATE TABLE mrdb.Departs_From (
+    vID int NOT NULL,
+    sNo int NOT NULL,
+    Time int NOT NULL,
+    PRIMARY KEY (vId,sNo),
+    FOREIGN KEY (vId) REFERENCES Vehicle(ID),
+    FOREIGN KEY (sNo) REFERENCES Stop(No),
+    UNIQUE KEY uVS (vID,sNo)
+);
+
+CREATE TABLE mrdb.Vehicle (
+    ID int NOT NULL UNIQUE,
+    Capacity int NOT NULL,
+    rID int NOT NULL,
+    PRIMARY KEY (rID),
+    FOREIGN KEY (rID) REFERENCES Route(ID)
+);
