@@ -1,7 +1,7 @@
 CREATE TABLE mrdb.Stop (
     No int NOT NULL UNIQUE,
     Location varchar(255) NOT NULL,
-    rID int NOT NULL,
+    rID int,
     PRIMARY KEY (No),
     FOREIGN KEY (rID) REFERENCES Route(ID)
 );

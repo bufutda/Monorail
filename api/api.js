@@ -5,6 +5,7 @@ var fs = require("fs");
 var pathLib = require("path");
 var Getopt = require("node-getopt");
 var mysql = require("mysql");
+var Event = require("events").EventEmitter;
 var Endpoint = require(__dirname + "/Endpoint");
 
 global.version = "1.0";
@@ -202,6 +203,7 @@ global.db = mysql.createConnection({
     user: "monorail",
     password: passwd
 });
+db.e = new Event();
 
 db.connect(function (err) {
     if (err) {
@@ -213,4 +215,9 @@ db.connect(function (err) {
     server.listen(PORT, function () {
         log.std("Server listening on https://localhost:" + PORT + "/");
     });
+});
+
+db.e.on("error", function (err) {
+    log.err("Database err");
+    console.error(err);
 });
