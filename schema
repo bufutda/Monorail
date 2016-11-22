@@ -5,6 +5,9 @@ CREATE TABLE mrdb.Stop (
     PRIMARY KEY (No),
     FOREIGN KEY (rID) REFERENCES Route(ID)
 );
+--after some data is added, the circular not null constraint
+--between Stop and Route can be added
+--ALTER TABLE Stop ALTER COLUMN rID int NOT NULL;
 
 CREATE TABLE mrdb.Train (
     ID int NOT NULL UNIQUE,
@@ -59,7 +62,7 @@ CREATE TABLE mrdb.Environmental (
 
 CREATE TABLE mrdb.Accident (
     dID int NOT NULL UNIQUE,
-    Cause varchar(255) NOT NULL,
+    Cause varchar(255),
     PRIMARY KEY (dID),
     FOREIGN KEY (dID) REFERENCES Delay(ID)
 );
@@ -71,8 +74,8 @@ CREATE TABLE mrdb.Other (
 );
 
 CREATE TABLE mrdb.Lays_Between (
-    Prev_no int NOT NULL,
-    Next_no int NOT NULL,
+    Prev_no int,
+    Next_no int,
     PRIMARY KEY (Prev_no,Next_no),
     FOREIGN KEY (Prev_no) REFERENCES Stop(No),
     FOREIGN KEY (Next_no) REFERENCES Stop(No),
@@ -82,7 +85,7 @@ CREATE TABLE mrdb.Lays_Between (
 CREATE TABLE mrdb.Arrives_At (
     vID int NOT NULL,
     sNo int NOT NULL,
-    Time int NOT NULL,
+    aTime int NOT NULL,
     PRIMARY KEY (vId,sNo),
     FOREIGN KEY (vId) REFERENCES Vehicle(ID),
     FOREIGN KEY (sNo) REFERENCES Stop(No),
@@ -92,7 +95,7 @@ CREATE TABLE mrdb.Arrives_At (
 CREATE TABLE mrdb.Departs_From (
     vID int NOT NULL,
     sNo int NOT NULL,
-    Time int NOT NULL,
+    dTime int NOT NULL,
     PRIMARY KEY (vId,sNo),
     FOREIGN KEY (vId) REFERENCES Vehicle(ID),
     FOREIGN KEY (sNo) REFERENCES Stop(No),

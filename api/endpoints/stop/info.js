@@ -23,3 +23,6 @@ module.exports.hand = function (request, response, url, endpoint) {
 };
 
 module.exports.desc = "Get stop data for a stop number";
+module.exports.querystring = {
+    no: "stop number"
+};

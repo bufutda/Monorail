@@ -12,6 +12,7 @@ module.exports = function (enpt) {
     this.handler = enpt.code.hand;
     this.desc = enpt.code.desc;
     this.hidden = enpt.code.hidden;
+    this.querystring = enpt.code.querystring;
 };
 
 /**
@@ -86,21 +87,6 @@ module.exports.requireParam = function (url, req, possible) { // eslint-disable-
 };
 
 /**
- * Checks token cache for username
- * @param {URI} url - the uri object to check against
- * @returns {string|boolean} - the username corresponding to the token, or false
- */
-module.exports.authenticate = function (url) { // eslint-disable-line no-unused-vars
-    if (url.query.hasOwnProperty("oauth_token")) {
-        if (cache.oauth_token.hasOwnProperty(url.query.oauth_token)) {
-            return cache.oauth_token[url.query.oauth_token];
-        }
-        return false;
-    }
-    return false;
-};
-
-/**
  * Ends a request to the server
  * @param {Response} response - the original response object
  * @param {Endpoint} endpoint - the endpoint (JSON) to respond with
@@ -159,19 +145,6 @@ module.exports.end = function (response, endpoint) { // eslint-disable-line no-u
     }
     response.end(JSON.stringify(endpoint));
     return;
-};
-
-/**
- * Retrieves an array of alternate usernames for the given username
- * @param {string} username - the username of the host user
- * @param {Callback} callback - the callback-return
- * @returns {undefined}
- */
-module.exports.getAlternates = function (username, callback) {
-    db.all("SELECT username FROM `ext` WHERE channel = ?;", username, function (err, rows) {
-        callback(err, rows);
-        return;
-    });
 };
 
 module.exports.DB_UNAVAILABLE = 503;

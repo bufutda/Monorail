@@ -6,12 +6,12 @@ module.exports.hand = function (request, response, url, endpoint) {
     endpoint.endpoints = [];
     for (var prop in registeredEndpoints.GET) {
         if (typeof registeredEndpoints.GET[prop].hidden === "undefined") {
-            endpoint.endpoints.push({desc: registeredEndpoints.GET[prop].desc, uri: prop, method: "GET"});
+            endpoint.endpoints.push({desc: registeredEndpoints.GET[prop].desc, uri: prop, method: "GET", queryparams: (registeredEndpoints.GET[prop].querystring ? registeredEndpoints.GET[prop].querystring : {})});
         }
     }
     for (var prop in registeredEndpoints.POST) {
         if (typeof registeredEndpoints.POST[prop].hidden === "undefined") {
-            endpoint.endpoints.push({desc: registeredEndpoints.POST[prop].desc, uri: prop, method: "POST"});
+            endpoint.endpoints.push({desc: registeredEndpoints.POST[prop].desc, uri: prop, method: "POST", queryparams: (registeredEndpoints.GET[prop].querystring ? registeredEndpoints.GET[prop].querystring : {})});
         }
     }
     endpoint.endpoints = endpoint.endpoints.sort(function (a, b) {

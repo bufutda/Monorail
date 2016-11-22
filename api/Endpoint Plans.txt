@@ -1,0 +1,82 @@
+--Our SQL Queries will be runnable through a RESTful API
+--that both the web-based front-end and the android app can
+--reference for data. What follows is the endpoint urls
+--(relative to the API base), a breif description, and the
+--SQL queries that they will be running.
+
+--/delay/info?id={id}
+--get delay tuples for a delay id
+    SELECT * FROM Delay WHERE {id} = ID;
+--/vehicle/info?id={id}
+--get vehicle tuples for a vehicle id
+    SELECT * FROM Vehicle WHERE {id} = ID;
+--/vehicle/route?type={type}
+--get all routes for a vehicle type
+    if (type == "bus")
+        SELECT R.ID, R.rStart, R.rEnd, R.Num_stops FROM (Bus NATURAL JOIN Vehicle) AS V JOIN Route AS R ON R.ID = V.rID;
+    else if (type == "train")
+        SELECT R.ID, R.rStart, R.rEnd, R.Num_stops FROM (Train NATURAL JOIN Vehicle) AS V JOIN Route AS R ON R.ID = V.rID;
+    else
+        Err;
+--/route/vehicle?id={id}
+--get the vehicle type for a route id
+    if ((SELECT * FROM Bus AS B WHERE B.ID IN (SELECT V.ID FROM (Vehicle AS V JOIN Route AS R ON V.rID = R.ID) WHERE V.rID = {id});).length)
+        return "bus";
+    else if ((SELECT * FROM Train AS T WHERE T.ID IN (SELECT V.ID FROM (Vehicle AS V JOIN Route AS R ON V.rID = R.ID) WHERE V.rID = {id});).length)
+        return "train";
+    else
+        return null;
+--/stop/vehicle?no={no}
+--get the vehicle type for a stop number
+    SELECT rID FROM Stop WHERE No = {no};
+    --CALL /route/vehicle?id={rID};
+--/stop/prev?no={no}
+--get the previous stop for a stop number
+    SELECT S.No, S.Location, S.rID FROM (Stop AS S JOIN Lays_Between AS L ON S.No = L.Prev_no) WHERE L.Next_no = {no}
+--/stop/next?no={no}
+-- get the next stop for a stop number
+    SELECT S.No, S.Location, S.rID FROM (Stop AS S JOIN Lays_Between AS L ON S.No = L.Next_no) WHERE L.Prev_no = {no}
+--/stop/info?no={no}
+--get stop tuple from stop number
+    SELECT * FROM Stop WHERE {no} = No;
+--/delay/all
+--get all delays
+    SELECT * FROM (Delay AS D JOIN Maintenance AS M ON D.ID = M.dID);
+    SELECT * FROM (Delay AS D JOIN Environment AS E ON D.ID = E.dID);
+    SELECT * FROM (Delay AS D JOIN Accident AS A ON D.ID = A.dID);
+    SELECT * FROM (Delay AS D JOIN Other AS O ON D.ID = O.dID);
+--/delay/stop?no={no}
+--get all delays affecting a stop number
+    SELECT * FROM ((Delay AS D JOIN Maintenance AS M ON D.ID = M.dID) JOIN Stop AS S ON S.No = D.sNo) WHERE S.No = {no};
+    SELECT * FROM ((Delay AS D JOIN Environment AS E ON D.ID = E.dID) JOIN Stop AS S ON S.No = D.sNo) WHERE S.No = {no};
+    SELECT * FROM ((Delay AS D JOIN Accident AS A ON D.ID = A.dID) JOIN Stop AS S ON S.No = D.sNo) WHERE S.No = {no};
+    SELECT * FROM ((Delay AS D JOIN Other AS O ON D.ID = O.dID) JOIN Stop AS S ON S.No = D.sNo) WHERE S.No = {no};
+--/route/all
+--get all routes
+    SELECT * FROM Route;
+--/route/start?id={id}
+--get the start stop of a route
+    SELECT S.No, S.Location, S.rID FROM (Stop AS S JOIN Route AS R ON S.No = R.rStart) WHERE R.ID = {id};
+--/route/end?id={id}
+--get the end stop of a route
+    SELECT S.No, S.Location, S.rID FROM (Stop AS S JOIN Route AS R ON S.No = R.rEnd) WHERE R.ID = {id};
+--/route/stop?no={no}
+--get the route containing a stop number
+    SELECT * FROM Route AS R WHERE R.ID IN (SELECT rID FROM Stop AS S WHERE {no} = S.No);
+--/route/stops?id={id}
+--get all stops in a route
+    SELECT * FROM Stop WHERE rID = {id};
+--/stop/timeTotal?start={stNo}&stop={eNo}
+--get the estimated travel time between two stops
+    --ERROR IF stNo >=eNo
+    --ERROR IF stNo.rID <> eNo.rID
+    ROUTE=SELECT rID FROM Stop as S WHERE S.No = {stNo};
+    START=SELECT D.vID, D.sNo, D.dTime as sTime FROM Departs_From AS D WHERE sNo={stNo};
+    FIN=SELECT vID, sNo, aTime as eTime FROM Arrives_At WHERE sNo={eNo};
+    TIMES=START JOIN FIN ON START.vID = END.vID;
+    DIFFERENCE=SELECT T.sTime-T.eTime AS diff FROM TIMES AS T;
+    FINAL=AVG(DIFFERENCE.diff);
+    DELAYS=SELECT * FROM DELAY as D WHERE (D.sNo > {eNo} AND D.sNo < {stNo}) AND sNo IN (SELECT S.No from Stop as S WHERE S.rID = ROUTE);
+    DELAYTIME=SELECT D.dEnd-D.dStart as delDiff FROM DELAYS as D;
+    DELAYSUM=SELECT SUM(delDiff) FROM DELAYTIME;
+    TOTAL=FINAL+DELAYSUM;

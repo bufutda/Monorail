@@ -18,4 +18,4 @@ module.exports.hand = function (request, response, url, endpoint) {
     return;
 };
 
-module.exports.desc = "self-describing api data";
+module.exports.desc = "api and server status";

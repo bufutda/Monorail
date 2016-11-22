@@ -184,7 +184,22 @@ function descend (path) {
                 enpt.path = ("/" + pathLib.resolve(path).substring(pathLib.resolve(path).indexOf("endpoints")) + "/" + (enpt.name === "index" ? "" : enpt.name)).substring(10);
                 enpt.code = require(enpt.abspath);
                 registeredEndpoints[enpt.type][enpt.path] = new Endpoint(enpt);
-                log.startup("Registered endpoint:  %p" + enpt.type + "\t%b" + enpt.path + "\t%n" + enpt.code.desc + (enpt.code.hidden ? "\t%yHIDDEN%n" : ""));
+                var query = [];
+                if (enpt.code.querystring) {
+                    for (var prop in enpt.code.querystring) {
+                        query.push([prop, "{:" + enpt.code.querystring[prop].replace(/ /gmi, "_") + "}"]);
+                    }
+                }
+                if (query.length) {
+                    var qString = "?";
+                    for (var i = 0; i < query.length; i++) {
+                        query[i] = query[i].join("=");
+                    }
+                    query = qString + query.join("&");
+                } else {
+                    query = "";
+                }
+                log.startup("Registered endpoint:  %p" + enpt.type + "\t%b" + enpt.path + query + "\t%n" + enpt.code.desc + (enpt.code.hidden ? "\t%yHIDDEN%n" : ""));
             } else {
                 log.wrn("Unexpected non-js file in endpoints: " + path + "/%r" + dir[i]);
             }
@@ -197,7 +212,6 @@ descend(__dirname + "/endpoints");
 
 log.startup("%gEndpoint registry complete");
 
-// TODO database spoofing
 global.db = mysql.createConnection({
     host: "localhost",
     user: "monorail",
