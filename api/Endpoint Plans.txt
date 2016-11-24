@@ -10,7 +10,7 @@
 --/vehicle/info?id={id}
 --get vehicle tuples for a vehicle id
     SELECT * FROM Vehicle WHERE {id} = ID;
---/vehicle/route?type={type}
+--TODO/vehicle/route?type={type}
 --get all routes for a vehicle type
     if (type == "bus")
         SELECT R.ID, R.rStart, R.rEnd, R.Num_stops FROM (Bus NATURAL JOIN Vehicle) AS V JOIN Route AS R ON R.ID = V.rID;
@@ -18,7 +18,7 @@
         SELECT R.ID, R.rStart, R.rEnd, R.Num_stops FROM (Train NATURAL JOIN Vehicle) AS V JOIN Route AS R ON R.ID = V.rID;
     else
         Err;
---/route/vehicle?id={id}
+--TODO/route/vehicle?id={id}
 --get the vehicle type for a route id
     if ((SELECT * FROM Bus AS B WHERE B.ID IN (SELECT V.ID FROM (Vehicle AS V JOIN Route AS R ON V.rID = R.ID) WHERE V.rID = {id});).length)
         return "bus";
@@ -66,7 +66,7 @@
 --/route/stops?id={id}
 --get all stops in a route
     SELECT * FROM Stop WHERE rID = {id};
---/stop/timeTotal?start={stNo}&stop={eNo}
+--TODO/stop/timeTotal?start={stNo}&stop={eNo}
 --get the estimated travel time between two stops
     --ERROR IF stNo >=eNo
     --ERROR IF stNo.rID <> eNo.rID

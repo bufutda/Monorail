@@ -192,8 +192,8 @@ function descend (path) {
                 }
                 if (query.length) {
                     var qString = "?";
-                    for (var i = 0; i < query.length; i++) {
-                        query[i] = query[i].join("=");
+                    for (var j = 0; j < query.length; j++) {
+                        query[j] = query[j].join("=");
                     }
                     query = qString + query.join("&");
                 } else {
