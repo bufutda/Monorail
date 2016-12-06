@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+
+        <title>Transit Site</title>
+
+        <link rel="stylesheet" type="text/css" href="/monorail/stylesheet.css">
+        <link rel="stylesheet" type="text/css" href="/monorail/tiles.css">
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Gurajada">
+        <link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
+        <script type="text/javascript" src="/resources/lib/jquery.min.js"></script>
+    </head>
+    <body>
+        <bbsite>
+            <div id="name">
+                <table>
+                    <tr><td><a href="/monorail/catch-a-ride.html">Find a Route or Stop</a></td><td><a href="/monorail/next-ride.html">Stop Schedules</a></td></tr>
+                </table>
+                <div id="delayW">
+                    <div id="delayHeader">
+                        DELAYS
+                    </div>
+                    <div id="delay">
+                        <table id="delayTbl">
+                            <thead>
+                                <tr><th>Type</th><th>Time</th><th>Origin</th><th>Description</th></tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div id="outerTileWrapper">
+                <div id="tileWrapper">
+                    <div id="innerTileWrapper">
+                        <div class="fwrap flatten" id="t-a1"><div class="flip"><div class="front"></div><div class="back"></div></div></div>
+                        <div class="fwrap flatten" id="t-a2"><div class="flip"><div class="front"></div><div class="back"></div></div></div>
+                        <div class="fwrap flatten" id="t-a3"><div class="flip"><div class="front"></div><div class="back"></div></div></div>
+                        <div class="fwrap flatten" id="t-a4"><div class="flip"><div class="front"></div><div class="back"></div></div></div>
+                        <div class="fwrap flatten" id="t-a5"><div class="flip"><div class="front"></div><div class="back"></div></div></div>
+                        <div class="fwrap flatten" id="t-a6"><div class="flip"><div class="front"></div><div class="back"></div></div></div>
+                        <div class="fwrap flatten" id="t-a7"><div class="flip"><div class="front"></div><div class="back"></div></div></div>
+                        <div class="fwrap flatten" id="t-a8"><div class="flip"><div class="front"></div><div class="back"></div></div></div>
+                        <div class="fwrap flatten" id="t-a9"><div class="flip"><div class="front"></div><div class="back"></div></div></div>
+                        <div class="fwrap flatten" id="t-a10"><div class="flip"><div class="front"></div><div class="back"></div></div></div>
+
+                        <div class="fwrap" id="t-b1"><div class="flip"><div class="front"></div><div class="back"></div></div></div>
+                        <div class="fwrap" id="t-b2"><div class="flip"><div class="front"></div><div class="back"></div></div></div>
+                        <div class="fwrap" id="t-b3"><div class="flip"><div class="front"></div><div class="back"></div></div></div>
+                        <div class="fwrap" id="t-b4"><div class="flip"><div class="front"></div><div class="back"></div></div></div>
+                        <div class="fwrap" id="t-b5"><div class="flip"><div class="front"></div><div class="back"></div></div></div>
+                        <div class="fwrap" id="t-b6"><div class="flip"><div class="front"></div><div class="back"></div></div></div>
+                        <div class="fwrap" id="t-b7"><div class="flip"><div class="front"></div><div class="back"></div></div></div>
+                        <div class="fwrap" id="t-b8"><div class="flip"><div class="front"></div><div class="back"></div></div></div>
+                        <div class="fwrap" id="t-b9"><div class="flip"><div class="front"></div><div class="back"></div></div></div>
+                        <div class="fwrap" id="t-b10"><div class="flip"><div class="front"></div><div class="back"></div></div></div>
+
+                        <div class="fwrap" id="t-c1"><div class="flip"><div class="front"></div><div class="back"></div></div></div>
+                        <div class="fwrap" id="t-c2"><div class="flip"><div class="front"></div><div class="back"></div></div></div>
+                        <div class="fwrap" id="t-c3"><div class="flip"><div class="front"></div><div class="back"></div></div></div>
+                        <div class="fwrap" id="t-c4"><div class="flip"><div class="front"></div><div class="back"></div></div></div>
+                        <div class="fwrap" id="t-c5"><div class="flip"><div class="front"></div><div class="back"></div></div></div>
+                        <div class="fwrap" id="t-c6"><div class="flip"><div class="front"></div><div class="back"></div></div></div>
+                        <div class="fwrap" id="t-c7"><div class="flip"><div class="front"></div><div class="back"></div></div></div>
+                        <div class="fwrap" id="t-c8"><div class="flip"><div class="front"></div><div class="back"></div></div></div>
+                        <div class="fwrap" id="t-c9"><div class="flip"><div class="front"></div><div class="back"></div></div></div>
+                        <div class="fwrap" id="t-c10"><div class="flip"><div class="front"></div><div class="back"></div></div></div>
+
+                        <div class="fwrap" id="t-d1"><div class="flip"><div class="front"></div><div class="back"></div></div></div>
+                        <div class="fwrap" id="t-d2"><div class="flip"><div class="front"></div><div class="back"></div></div></div>
+                        <div class="fwrap" id="t-d3"><div class="flip"><div class="front"></div><div class="back"></div></div></div>
+                        <div class="fwrap" id="t-d4"><div class="flip"><div class="front"></div><div class="back"></div></div></div>
+                        <div class="fwrap" id="t-d5"><div class="flip"><div class="front"></div><div class="back"></div></div></div>
+                        <div class="fwrap" id="t-d6"><div class="flip"><div class="front"></div><div class="back"></div></div></div>
+                        <div class="fwrap" id="t-d7"><div class="flip"><div class="front"></div><div class="back"></div></div></div>
+                        <div class="fwrap" id="t-d8"><div class="flip"><div class="front"></div><div class="back"></div></div></div>
+                        <div class="fwrap" id="t-d9"><div class="flip"><div class="front"></div><div class="back"></div></div></div>
+                        <div class="fwrap" id="t-d10"><div class="flip"><div class="front"></div><div class="back"></div></div></div>
+
+                        <div class="fwrap" id="t-e1"><div class="flip"><div class="front"></div><div class="back"></div></div></div>
+                        <div class="fwrap" id="t-e2"><div class="flip"><div class="front"></div><div class="back"></div></div></div>
+                        <div class="fwrap" id="t-e3"><div class="flip"><div class="front"></div><div class="back"></div></div></div>
+                        <div class="fwrap" id="t-e4"><div class="flip"><div class="front"></div><div class="back"></div></div></div>
+                        <div class="fwrap" id="t-e5"><div class="flip"><div class="front"></div><div class="back"></div></div></div>
+                        <div class="fwrap" id="t-e6"><div class="flip"><div class="front"></div><div class="back"></div></div></div>
+                        <div class="fwrap" id="t-e7"><div class="flip"><div class="front"></div><div class="back"></div></div></div>
+                        <div class="fwrap" id="t-e8"><div class="flip"><div class="front"></div><div class="back"></div></div></div>
+                        <div class="fwrap" id="t-e9"><div class="flip"><div class="front"></div><div class="back"></div></div></div>
+                        <div class="fwrap" id="t-e10"><div class="flip"><div class="front"></div><div class="back"></div></div></div>
+
+                        <div class="fwrap flatten" id="t-f1"><div class="flip"><div class="front"></div><div class="back"></div></div></div>
+                        <div class="fwrap flatten" id="t-f2"><div class="flip"><div class="front"></div><div class="back"></div></div></div>
+                        <div class="fwrap flatten" id="t-f3"><div class="flip"><div class="front"></div><div class="back"></div></div></div>
+                        <div class="fwrap flatten" id="t-f4"><div class="flip"><div class="front"></div><div class="back"></div></div></div>
+                        <div class="fwrap flatten" id="t-f5"><div class="flip"><div class="front"></div><div class="back"></div></div></div>
+                        <div class="fwrap flatten" id="t-f6"><div class="flip"><div class="front"></div><div class="back"></div></div></div>
+                        <div class="fwrap flatten" id="t-f7"><div class="flip"><div class="front"></div><div class="back"></div></div></div>
+                        <div class="fwrap flatten" id="t-f8"><div class="flip"><div class="front"></div><div class="back"></div></div></div>
+                        <div class="fwrap flatten" id="t-f9"><div class="flip"><div class="front"></div><div class="back"></div></div></div>
+                        <div class="fwrap flatten" id="t-f10"><div class="flip"><div class="front"></div><div class="back"></div></div></div>
+                    </div>
+                </div>
+            </div>
+        </bbsite>
+    </body>
+    <script type="text/javascript" src="/monorail/main.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $.ajax({
+                url: "https://sa.watz.ky/monorail/api/delay/all",
+                datatype: "json",
+                success: function (data) {
+                    window.delayData = data;
+                    for (var prop in data.data) {
+                        for (var i = 0; i < data.data[prop].length; i++) {
+                            if (data.data[prop][i].dEnd === null) {
+                                // type time origin description
+                                $("#delayTbl tbody").append("<tr><td>" + prop.substring(0,1).toUpperCase() + prop.substring(1) + "</td><td>" + new Date(data.data[prop][i].dStart) + "</td><td>" + data.data[prop][i].Origin + "</td><td>" + data.data[prop][i].Description + "</td></tr>");
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</html>
