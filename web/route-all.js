@@ -20,7 +20,7 @@ $(document).ready(function () {
   complete:function(){
     allowInput();
   })
-}
+})
 function onError () {
   $("body").prepend("An error has occurrd.<br><br><br><br>")
 }
@@ -29,4 +29,4 @@ function preventInput() {
 }
 function allowInput() {
   $("#inputPrevention").hide();
-})
+}

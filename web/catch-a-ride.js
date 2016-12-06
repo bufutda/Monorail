@@ -1,6 +1,6 @@
 "use strict";
 var baseSite = "https://sa.watz.ky/monorail/api/";
-$(document).ready(doFunction () {
+function doFunction () {
   clearAllInputs();
   preventInput();
   $.ajax({
@@ -19,8 +19,8 @@ $(document).ready(doFunction () {
     },
     complete:function(){
       allowInput();
-    }
-  })
+    })
+  }
 }
 function onError () {
   clearAllInputs();
@@ -35,4 +35,4 @@ function preventInput() {
 }
 function allowInput() {
   $("#inputPrevention").hide();
-})
+}
