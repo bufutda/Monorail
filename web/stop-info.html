@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset = "utf-8">
+      <title> Stop Info </title>
+      <script type = "text/javascript" src = "/resources/lib/jquery.min.js"> </script>
+      <script type = "text/javascript" src = "stop-info.js"> </script>
+  <style>
+      #inputPrevention {
+        display: none;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        cursor: progress;
+        z-index: 5;
+      }
+  </style>
+</head>
+  <body>
+    <div>
+      id = inputPrevention;
+    </div>
+    <form>
+      Stop number: <br>
+      <input type = "text" name = "Stop Number" id = "Stop-Number"><br>
+      <input type = "button" value = "submit" onclick = "doFunction();">
+    </form>
+    <table id = "stop-table">
+      <thead>
+        <tr>
+          <td>
+            Stop Number:
+          </td>
+          <td>
+            Stop Name:
+          </td>
+          <td>
+            Route ID:
+          </td>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </body>
+</html>
