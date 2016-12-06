@@ -7,11 +7,11 @@ module.exports.hand = function (request, response, url, endpoint) {
     var cont = new Event();
     var evCount = 0;
     var done = false;
-    endpoint.data = {};
+    var epnt = {data: {}};
     // query timeout
     var queryTimeout = setTimeout(function () {
         cont.emit("done", true);
-    });
+    }, 1000);
     cont.on("done", function (force) {
         if (done) {
             if (queryTimeout) {
@@ -36,6 +36,7 @@ module.exports.hand = function (request, response, url, endpoint) {
                 clearTimeout(queryTimeout);
                 queryTimeout = 0;
             }
+            endpoint.data = epnt.data;
             Endpoint.end(response, endpoint);
             done = true;
             return;
@@ -47,16 +48,16 @@ module.exports.hand = function (request, response, url, endpoint) {
             db.e.emit("error", err);
             return;
         }
-        endpoint.data.maintenance = rows;
+        epnt.data.maintenance = rows;
         cont.emit("done", false);
     });
-    db.query("SELECT * FROM (mrdb.Delay AS D JOIN mrdb.Environment AS E ON D.ID = E.dID);", function (err, rows, fields) {
+    db.query("SELECT * FROM (mrdb.Delay AS D JOIN mrdb.Environmental AS E ON D.ID = E.dID);", function (err, rows, fields) {
         if (err) {
             done = true;
             db.e.emit("error", err);
             return;
         }
-        endpoint.data.environment = rows;
+        epnt.data.environment = rows;
         cont.emit("done", false);
     });
     db.query("SELECT * FROM (mrdb.Delay AS D JOIN mrdb.Accident AS A ON D.ID = A.dID);", function (err, rows, fields) {
@@ -65,7 +66,7 @@ module.exports.hand = function (request, response, url, endpoint) {
             db.e.emit("error", err);
             return;
         }
-        endpoint.data.accident = rows;
+        epnt.data.accident = rows;
         cont.emit("done", false);
     });
     db.query("SELECT * FROM (mrdb.Delay AS D JOIN mrdb.Other AS O ON D.ID = O.dID);", function (err, rows, fields) {
@@ -74,7 +75,7 @@ module.exports.hand = function (request, response, url, endpoint) {
             db.e.emit("error", err);
             return;
         }
-        endpoint.data.other = rows;
+        epnt.data.other = rows;
         cont.emit("done", false);
     });
 };

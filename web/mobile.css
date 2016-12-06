@@ -1,0 +1,46 @@
+#nameImg {
+    width: 335px;
+}
+.section:hover .section-header {
+    /*letter-spacing: 10px;*/
+}
+.c-tbl {
+    display: table;
+    margin: initial;
+}
+#contact div.section-body {
+    height: 300px;
+}
+#contactWrapper {
+    min-width: initial;
+}
+.footer-part {
+    display: block;
+}
+.section-body {
+    padding-left: 20px;
+}
+.s-part-title {
+    display: none;
+}
+.s-part-title-col {
+    width: 0;
+}
+.s-tbl {
+    margin-right: 0;
+}
+.s-part-alt-title {
+    display: block;
+}
+.s-part-title-border {
+    display: none;
+}
+#about .section-body {
+    margin-right: 0;
+}
+#skillset .section-body {
+    padding-left: 0;
+}
+#outerTileWrapper {
+    min-height: 400px;
+}
