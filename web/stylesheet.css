@@ -1,0 +1,159 @@
+body {
+    background-color: #2c2c2c;
+    overflow: hidden;
+}
+.fwrap {
+    -webkit-perspective: 1000px;
+            perspective: 1000px;
+    font-family: consolas;
+    float: left;
+    width: 10%;
+    height: 16.66666666666666%;
+}
+.flatten {
+    -webkit-perspective: none;
+            perspective: none;
+}
+.fwrap.hovera .flip {
+    -webkit-transform-origin: right center;
+            transform-origin: right center;
+    -webkit-transform: translateX(-100%) rotateY(-180deg);
+            transform: translateX(-100%) rotateY(-180deg);
+}
+.fwrap.hoverb .flip {
+    -webkit-transform-origin: left center;
+            transform-origin: left center;
+    -webkit-transform: translateX(100%) rotateY(180deg);
+            transform: translateX(100%) rotateY(180deg);
+}
+.fwrap.hoverc .flip {
+    -webkit-transform-origin: right center;
+            transform-origin: right center;
+    -webkit-transform: translateX(-100%) rotateY(180deg);
+            transform: translateX(-100%) rotateY(180deg);
+}
+.fwrap.hoverd .flip {
+    -webkit-transform-origin: left center;
+            transform-origin: left center;
+    -webkit-transform: translateX(100%) rotateY(-180deg);
+            transform: translateX(100%) rotateY(-180deg);
+}
+.flip {
+    -webkit-transition: 1s;
+    transition: 1s;
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.front,
+.back {
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.front {
+    z-index: 2;
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+    background: blue;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.back {
+    -webkit-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+    background: white;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+bbsite {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow-x: hidden;
+    -webkit-transition: 1s;
+    transition: 1s;
+    background: #2c2c2c;
+}
+#outerTileWrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    min-height: 600px;
+}
+#tileWrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+#tileWrapper:after {
+    padding-top: 60%;
+    display: block;
+    content: '';
+}
+#siteWrapper {
+    border: 12px black solid;
+}
+#innerTileWrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+#name {
+    pointer-events: none;
+    position: absolute;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+}
+#name table {
+    width: 100%;
+    text-align: center;
+}
+#name td {
+    background-color: rgba(0, 177, 252, 0.9);
+    padding: 10px;
+    border-radius: 5px;
+    border: 5px solid #00b1fc;
+}
+#name a {
+    pointer-events: all;
+    text-decoration: none;
+    font-variant: all-petite-caps;
+    font-family: "Oxygen";
+    font-size: 20px;
+    color: black;
+}
+#delayTbl tr {
+    font-size: 10px;
+    font-variant: all-petite-caps;
+    font-family: "Oxygen";
+    text-align: center;
+}
+#delayTbl td, #delayTbl th {
+    background-color:rgba(255, 177, 252, 0.9);
+    border: 2px solid #FF0000;
+}
+#delayHeader {
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+    margin-top: 20px;
+    padding-top: 5px;
+    background-color: rgba(255, 177, 252, 0.9);
+    border: 3px solid #ff0000;
+    border-radius: 5px;
+}

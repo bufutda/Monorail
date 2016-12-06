@@ -1,0 +1,503 @@
+#t-a1 .front {
+    background: url("/monorail/f-bkgnd.jpg") 0 0/1005% no-repeat;
+}
+#t-a2 .front {
+    background: url("/monorail/f-bkgnd.jpg") 11.02% 0/1005% no-repeat;
+}
+#t-a3 .front {
+    background: url("/monorail/f-bkgnd.jpg") 22.04% 0/1005% no-repeat;
+}
+#t-a4 .front {
+    background: url("/monorail/f-bkgnd.jpg") 33.06% 0/1005% no-repeat;
+}
+#t-a5 .front {
+    background: url("/monorail/f-bkgnd.jpg") 44.08% 0/1005% no-repeat;
+}
+#t-a6 .front {
+    background: url("/monorail/f-bkgnd.jpg") 55.10% 0/1005% no-repeat;
+}
+#t-a7 .front {
+    background: url("/monorail/f-bkgnd.jpg") 66.12% 0/1005% no-repeat;
+}
+#t-a8 .front {
+    background: url("/monorail/f-bkgnd.jpg") 77.14% 0/1005% no-repeat;
+}
+#t-a9 .front {
+    background: url("/monorail/f-bkgnd.jpg") 88.16% 0/1005% no-repeat;
+}
+#t-a10 .front {
+    background: url("/monorail/f-bkgnd.jpg") 99.18% 0/1005% no-repeat;
+}
+
+#t-b1 .front {
+    background: url("/monorail/f-bkgnd.jpg") 0 19.9%/1005% no-repeat;
+}
+#t-b2 .front {
+    background: url("/monorail/f-bkgnd.jpg") 11.02% 19.9%/1005% no-repeat;
+}
+#t-b3 .front {
+    background: url("/monorail/f-bkgnd.jpg") 22.04% 19.9%/1005% no-repeat;
+}
+#t-b4 .front {
+    background: url("/monorail/f-bkgnd.jpg") 33.06% 19.9%/1005% no-repeat;
+}
+#t-b5 .front {
+    background: url("/monorail/f-bkgnd.jpg") 44.08% 19.9%/1005% no-repeat;
+}
+#t-b6 .front {
+    background: url("/monorail/f-bkgnd.jpg") 55.10% 19.9%/1005% no-repeat;
+}
+#t-b7 .front {
+    background: url("/monorail/f-bkgnd.jpg") 66.12% 19.9%/1005% no-repeat;
+}
+#t-b8 .front {
+    background: url("/monorail/f-bkgnd.jpg") 77.14% 19.9%/1005% no-repeat;
+}
+#t-b9 .front {
+    background: url("/monorail/f-bkgnd.jpg") 88.16% 19.9%/1005% no-repeat;
+}
+#t-b10 .front {
+    background: url("/monorail/f-bkgnd.jpg") 99.18% 19.9%/1005% no-repeat;
+}
+
+#t-c1 .front {
+    background: url("/monorail/f-bkgnd.jpg") 0 39.8%/1005% no-repeat;
+}
+#t-c2 .front {
+    background: url("/monorail/f-bkgnd.jpg") 11.02% 39.8%/1005% no-repeat;
+}
+#t-c3 .front {
+    background: url("/monorail/f-bkgnd.jpg") 22.04% 39.8%/1005% no-repeat;
+}
+#t-c4 .front {
+    background: url("/monorail/f-bkgnd.jpg") 33.06% 39.8%/1005% no-repeat;
+}
+#t-c5 .front {
+    background: url("/monorail/f-bkgnd.jpg") 44.08% 39.8%/1005% no-repeat;
+}
+#t-c6 .front {
+    background: url("/monorail/f-bkgnd.jpg") 55.10% 39.8%/1005% no-repeat;
+}
+#t-c7 .front {
+    background: url("/monorail/f-bkgnd.jpg") 66.12% 39.8%/1005% no-repeat;
+}
+#t-c8 .front {
+    background: url("/monorail/f-bkgnd.jpg") 77.14% 39.8%/1005% no-repeat;
+}
+#t-c9 .front {
+    background: url("/monorail/f-bkgnd.jpg") 88.16% 39.8%/1005% no-repeat;
+}
+#t-c10 .front {
+    background: url("/monorail/f-bkgnd.jpg") 99.18% 39.8%/1005% no-repeat;
+}
+
+#t-d1 .front {
+    background: url("/monorail/f-bkgnd.jpg") 0 59.7%/1005% no-repeat;
+}
+#t-d2 .front {
+    background: url("/monorail/f-bkgnd.jpg") 11.02% 59.7%/1005% no-repeat;
+}
+#t-d3 .front {
+    background: url("/monorail/f-bkgnd.jpg") 22.04% 59.7%/1005% no-repeat;
+}
+#t-d4 .front {
+    background: url("/monorail/f-bkgnd.jpg") 33.06% 59.7%/1005% no-repeat;
+}
+#t-d5 .front {
+    background: url("/monorail/f-bkgnd.jpg") 44.08% 59.7%/1005% no-repeat;
+}
+#t-d6 .front {
+    background: url("/monorail/f-bkgnd.jpg") 55.10% 59.7%/1005% no-repeat;
+}
+#t-d7 .front {
+    background: url("/monorail/f-bkgnd.jpg") 66.12% 59.7%/1005% no-repeat;
+}
+#t-d8 .front {
+    background: url("/monorail/f-bkgnd.jpg") 77.14% 59.7%/1005% no-repeat;
+}
+#t-d9 .front {
+    background: url("/monorail/f-bkgnd.jpg") 88.16% 59.7%/1005% no-repeat;
+}
+#t-d10 .front {
+    background: url("/monorail/f-bkgnd.jpg") 99.18% 59.7%/1005% no-repeat;
+}
+
+#t-e1 .front {
+    background: url("/monorail/f-bkgnd.jpg") 0 79.6%/1005% no-repeat;
+}
+#t-e2 .front {
+    background: url("/monorail/f-bkgnd.jpg") 11.02% 79.6%/1005% no-repeat;
+}
+#t-e3 .front {
+    background: url("/monorail/f-bkgnd.jpg") 22.04% 79.6%/1005% no-repeat;
+}
+#t-e4 .front {
+    background: url("/monorail/f-bkgnd.jpg") 33.06% 79.6%/1005% no-repeat;
+}
+#t-e5 .front {
+    background: url("/monorail/f-bkgnd.jpg") 44.08% 79.6%/1005% no-repeat;
+}
+#t-e6 .front {
+    background: url("/monorail/f-bkgnd.jpg") 55.10% 79.6%/1005% no-repeat;
+}
+#t-e7 .front {
+    background: url("/monorail/f-bkgnd.jpg") 66.12% 79.6%/1005% no-repeat;
+}
+#t-e8 .front {
+    background: url("/monorail/f-bkgnd.jpg") 77.14% 79.6%/1005% no-repeat;
+}
+#t-e9 .front {
+    background: url("/monorail/f-bkgnd.jpg") 88.16% 79.6%/1005% no-repeat;
+}
+#t-e10 .front {
+    background: url("/monorail/f-bkgnd.jpg") 99.18% 79.6%/1005% no-repeat;
+}
+
+#t-f1 .front {
+    background: url("/monorail/f-bkgnd.jpg") 0 99.5%/1005% no-repeat;
+}
+#t-f2 .front {
+    background: url("/monorail/f-bkgnd.jpg") 11.02% 99.5%/1005% no-repeat;
+}
+#t-f3 .front {
+    background: url("/monorail/f-bkgnd.jpg") 22.04% 99.5%/1005% no-repeat;
+}
+#t-f4 .front {
+    background: url("/monorail/f-bkgnd.jpg") 33.06% 99.5%/1005% no-repeat;
+}
+#t-f5 .front {
+    background: url("/monorail/f-bkgnd.jpg") 44.08% 99.5%/1005% no-repeat;
+}
+#t-f6 .front {
+    background: url("/monorail/f-bkgnd.jpg") 55.10% 99.5%/1005% no-repeat;
+}
+#t-f7 .front {
+    background: url("/monorail/f-bkgnd.jpg") 66.12% 99.5%/1005% no-repeat;
+}
+#t-f8 .front {
+    background: url("/monorail/f-bkgnd.jpg") 77.14% 99.5%/1005% no-repeat;
+}
+#t-f9 .front {
+    background: url("/monorail/f-bkgnd.jpg") 88.16% 99.5%/1005% no-repeat;
+}
+#t-f10 .front {
+    background: url("/monorail/f-bkgnd.jpg") 99.18% 99.5%/1005% no-repeat;
+}
+
+
+#t-a1 .back {
+    background: url("/monorail/b-bkgnd.jpg") 0 0/1005% no-repeat;
+}
+#t-a2 .back {
+    background: url("/monorail/b-bkgnd.jpg") 11.02% 0/1005% no-repeat;
+}
+#t-a3 .back {
+    background: url("/monorail/b-bkgnd.jpg") 22.04% 0/1005% no-repeat;
+}
+#t-a4 .back {
+    background: url("/monorail/b-bkgnd.jpg") 33.06% 0/1005% no-repeat;
+}
+#t-a5 .back {
+    background: url("/monorail/b-bkgnd.jpg") 44.08% 0/1005% no-repeat;
+}
+#t-a6 .back {
+    background: url("/monorail/b-bkgnd.jpg") 55.10% 0/1005% no-repeat;
+}
+#t-a7 .back {
+    background: url("/monorail/b-bkgnd.jpg") 66.12% 0/1005% no-repeat;
+}
+#t-a8 .back {
+    background: url("/monorail/b-bkgnd.jpg") 77.14% 0/1005% no-repeat;
+}
+#t-a9 .back {
+    background: url("/monorail/b-bkgnd.jpg") 88.16% 0/1005% no-repeat;
+}
+#t-a10 .back {
+    background: url("/monorail/b-bkgnd.jpg") 99.18% 0/1005% no-repeat;
+}
+
+#t-b1 .back {
+    background: url("/monorail/b-bkgnd.jpg") 0 19.9%/1005% no-repeat;
+}
+#t-b2 .back {
+    background: url("/monorail/b-bkgnd.jpg") 11.02% 19.9%/1005% no-repeat;
+}
+#t-b3 .back {
+    background: url("/monorail/b-bkgnd.jpg") 22.04% 19.9%/1005% no-repeat;
+}
+#t-b4 .back {
+    background: url("/monorail/b-bkgnd.jpg") 33.06% 19.9%/1005% no-repeat;
+}
+#t-b5 .back {
+    background: url("/monorail/b-bkgnd.jpg") 44.08% 19.9%/1005% no-repeat;
+}
+#t-b6 .back {
+    background: url("/monorail/b-bkgnd.jpg") 55.10% 19.9%/1005% no-repeat;
+}
+#t-b7 .back {
+    background: url("/monorail/b-bkgnd.jpg") 66.12% 19.9%/1005% no-repeat;
+}
+#t-b8 .back {
+    background: url("/monorail/b-bkgnd.jpg") 77.14% 19.9%/1005% no-repeat;
+}
+#t-b9 .back {
+    background: url("/monorail/b-bkgnd.jpg") 88.16% 19.9%/1005% no-repeat;
+}
+#t-b10 .back {
+    background: url("/monorail/b-bkgnd.jpg") 99.18% 19.9%/1005% no-repeat;
+}
+
+#t-c1 .back {
+    background: url("/monorail/b-bkgnd.jpg") 0 39.8%/1005% no-repeat;
+}
+#t-c2 .back {
+    background: url("/monorail/b-bkgnd.jpg") 11.02% 39.8%/1005% no-repeat;
+}
+#t-c3 .back {
+    background: url("/monorail/b-bkgnd.jpg") 22.04% 39.8%/1005% no-repeat;
+}
+#t-c4 .back {
+    background: url("/monorail/b-bkgnd.jpg") 33.06% 39.8%/1005% no-repeat;
+}
+#t-c5 .back {
+    background: url("/monorail/b-bkgnd.jpg") 44.08% 39.8%/1005% no-repeat;
+}
+#t-c6 .back {
+    background: url("/monorail/b-bkgnd.jpg") 55.10% 39.8%/1005% no-repeat;
+}
+#t-c7 .back {
+    background: url("/monorail/b-bkgnd.jpg") 66.12% 39.8%/1005% no-repeat;
+}
+#t-c8 .back {
+    background: url("/monorail/b-bkgnd.jpg") 77.14% 39.8%/1005% no-repeat;
+}
+#t-c9 .back {
+    background: url("/monorail/b-bkgnd.jpg") 88.16% 39.8%/1005% no-repeat;
+}
+#t-c10 .back {
+    background: url("/monorail/b-bkgnd.jpg") 99.18% 39.8%/1005% no-repeat;
+}
+
+#t-d1 .back {
+    background: url("/monorail/b-bkgnd.jpg") 0 59.7%/1005% no-repeat;
+}
+#t-d2 .back {
+    background: url("/monorail/b-bkgnd.jpg") 11.02% 59.7%/1005% no-repeat;
+}
+#t-d3 .back {
+    background: url("/monorail/b-bkgnd.jpg") 22.04% 59.7%/1005% no-repeat;
+}
+#t-d4 .back {
+    background: url("/monorail/b-bkgnd.jpg") 33.06% 59.7%/1005% no-repeat;
+}
+#t-d5 .back {
+    background: url("/monorail/b-bkgnd.jpg") 44.08% 59.7%/1005% no-repeat;
+}
+#t-d6 .back {
+    background: url("/monorail/b-bkgnd.jpg") 55.10% 59.7%/1005% no-repeat;
+}
+#t-d7 .back {
+    background: url("/monorail/b-bkgnd.jpg") 66.12% 59.7%/1005% no-repeat;
+}
+#t-d8 .back {
+    background: url("/monorail/b-bkgnd.jpg") 77.14% 59.7%/1005% no-repeat;
+}
+#t-d9 .back {
+    background: url("/monorail/b-bkgnd.jpg") 88.16% 59.7%/1005% no-repeat;
+}
+#t-d10 .back {
+    background: url("/monorail/b-bkgnd.jpg") 99.18% 59.7%/1005% no-repeat;
+}
+
+#t-e1 .back {
+    background: url("/monorail/b-bkgnd.jpg") 0 79.6%/1005% no-repeat;
+}
+#t-e2 .back {
+    background: url("/monorail/b-bkgnd.jpg") 11.02% 79.6%/1005% no-repeat;
+}
+#t-e3 .back {
+    background: url("/monorail/b-bkgnd.jpg") 22.04% 79.6%/1005% no-repeat;
+}
+#t-e4 .back {
+    background: url("/monorail/b-bkgnd.jpg") 33.06% 79.6%/1005% no-repeat;
+}
+#t-e5 .back {
+    background: url("/monorail/b-bkgnd.jpg") 44.08% 79.6%/1005% no-repeat;
+}
+#t-e6 .back {
+    background: url("/monorail/b-bkgnd.jpg") 55.10% 79.6%/1005% no-repeat;
+}
+#t-e7 .back {
+    background: url("/monorail/b-bkgnd.jpg") 66.12% 79.6%/1005% no-repeat;
+}
+#t-e8 .back {
+    background: url("/monorail/b-bkgnd.jpg") 77.14% 79.6%/1005% no-repeat;
+}
+#t-e9 .back {
+    background: url("/monorail/b-bkgnd.jpg") 88.16% 79.6%/1005% no-repeat;
+}
+#t-e10 .back {
+    background: url("/monorail/b-bkgnd.jpg") 99.18% 79.6%/1005% no-repeat;
+}
+
+#t-f1 .back {
+    background: url("/monorail/b-bkgnd.jpg") 0 99.5%/1005% no-repeat;
+}
+#t-f2 .back {
+    background: url("/monorail/b-bkgnd.jpg") 11.02% 99.5%/1005% no-repeat;
+}
+#t-f3 .back {
+    background: url("/monorail/b-bkgnd.jpg") 22.04% 99.5%/1005% no-repeat;
+}
+#t-f4 .back {
+    background: url("/monorail/b-bkgnd.jpg") 33.06% 99.5%/1005% no-repeat;
+}
+#t-f5 .back {
+    background: url("/monorail/b-bkgnd.jpg") 44.08% 99.5%/1005% no-repeat;
+}
+#t-f6 .back {
+    background: url("/monorail/b-bkgnd.jpg") 55.10% 99.5%/1005% no-repeat;
+}
+#t-f7 .back {
+    background: url("/monorail/b-bkgnd.jpg") 66.12% 99.5%/1005% no-repeat;
+}
+#t-f8 .back {
+    background: url("/monorail/b-bkgnd.jpg") 77.14% 99.5%/1005% no-repeat;
+}
+#t-f9 .back {
+    background: url("/monorail/b-bkgnd.jpg") 88.16% 99.5%/1005% no-repeat;
+}
+#t-f10 .back {
+    background: url("/monorail/b-bkgnd.jpg") 99.18% 99.5%/1005% no-repeat;
+}
+#media-git {
+    background-position: 0 0;
+}
+#media-twitter {
+    background-position: -64px 0;
+}
+#media-linkedin {
+    background-position: -128px 0;
+}
+#media-mail {
+    background-position: -192px 0;
+}
+#resumeButton {
+    width: 158px;
+    height: 32px;
+    background-position: 0 -64px;
+}
+#resumePDF {
+    width: 32px;
+    height: 32px;
+    background-position: -225px -96px;
+}
+#media-footer-digitalocean {
+    background-position: -193px -64px;
+    width: 58px;
+}
+#media-footer-git {
+    background-position: 0 -96px;
+    width: 33px;
+}
+#c-phone {
+    background-position: -193px -96px;
+}
+#c-email {
+    background-position: -161px -96px;
+}
+#c-linkedin {
+    background-position: -129px -96px;
+}
+#c-twitter {
+    background-position: -97px -96px;
+}
+#c-github {
+    background-position: -65px -96px;
+}
+#c-resume {
+    background-position: -33px -96px;
+}
+#icon-javascript {
+    background-position: 0 -128px;
+}
+#icon-jquery {
+    background-position: -32px -128px;
+}
+#icon-nodejs {
+    background-position: -64px -128px;
+    width: 28px;
+}
+#icon-php {
+    background-position: -92px -128px;
+    width: 63px;
+}
+#icon-html {
+    background-position: -155px -128px;
+    width: 28px;
+}
+#icon-css {
+    background-position: -183px -128px;
+    width: 28px;
+}
+#icon-md {
+    background-position: 0 -160px;
+    width: 51px;
+}
+#icon-bash {
+    background-position: -51px -160px;
+}
+#icon-python {
+    background-position: -83px -160px;
+}
+#icon-c {
+    background-position: -115px -160px;
+}
+#icon-cpp {
+    background-position: -147px -160px;
+    width: 29px;
+}
+#icon-java {
+    background-position: -176px -160px;
+    width: 23px;
+}
+#icon-sqlite {
+    background-position: -199px -160px;
+    width: 26px;
+    margin-right: 37px;
+}
+#icon-redis {
+    background-position: -211px -128px;
+    width: 37px;
+}
+#icon-ubuntu {
+    background-position: -225px -160px;
+    margin-right: 31px;
+}
+#icon-osx {
+    background-position: -32px -192px;
+}
+#icon-centos {
+    background-position: 0 -192px;
+}
+#icon-windows {
+    background-position: -64px -192px;
+}
+#icon-gimp,
+#media-footer-gimp {
+    background-position: -96px -192px;
+    width: 51px;
+    margin-right: 12px;
+}
+#icon-git {
+    background-position: -147px -192px;
+}
+#icon-atom,
+#media-footer-atom {
+    background-position: -158px -64px;
+    width: 35px;
+}
+#icon-vim {
+    background-position: -179px -192px;
+    margin-right: 31px;
+}
