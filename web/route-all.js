@@ -3,9 +3,9 @@ var baseSite = "https://sa.watz.ky/monorail/api/";
 $(document).ready(function () {
   preventInput();
   $.ajax( {
-    type: "get";
-    url: baseSite+"route/all";
-    datatype: "json";
+    type: "get",
+    url: baseSite+"route/all",
+    datatype: "json",
     success: function (data) {
       if(data.error === false) {
         $("#route-info tbody").empty();

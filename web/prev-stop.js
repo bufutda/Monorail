@@ -5,9 +5,9 @@ function doFunction () {
   clearAllInputs();
   preventInput();
   $.ajax( {
-    type: "get";
-    url: baseSite+"stop/prev?no="+name;
-    datatype: "json";
+    type: "get",
+    url: baseSite+"stop/prev?no="+name,
+    datatype: "json",
     success: function (data) {
       data = data.data;
       if(data.error === false) {
