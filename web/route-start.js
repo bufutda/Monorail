@@ -9,8 +9,8 @@ function doFunction () {
     url: baseSite+"route/start?id="+name,
     datatype: "json",
     success: function (data) {
-      data = data.data;
       if(data.error === false) {
+        data = data.data;
         $("#stop-info tbody").empty();
         $("#stop-info tbody").append("<tr><td>"+data.No+"</td><td>"+data.Location+"</td><td>"+data.rID+"</td></tr>");
       } else {

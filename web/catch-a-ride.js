@@ -10,8 +10,8 @@ function doFunction () {
     url: baseSite+"stop/TimeTotal?stop="+start+"&stop="+end,
     datatype: "json",
     success: function (data) {
-      data = data.data;
       if(data.error === false) {
+        data = data.data;
         $("#next-stop tbody").empty();
         $("#next-stop tbody").append("<tr><td>"+start+"</td><td>"+end+"</td><td>"+data.Time+"</td></tr>");
       } else {

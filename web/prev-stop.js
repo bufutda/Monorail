@@ -9,8 +9,8 @@ function doFunction () {
     url: baseSite+"stop/prev?no="+name,
     datatype: "json",
     success: function (data) {
-      data = data.data;
       if(data.error === false) {
+        data = data.data;
         $("#prev-stop tbody").empty();
         $("#prev-stop tbody").append("<tr><td>"+data.No+"</td><td>"+data.Location+"</td><td>"+data.rID+"</td></tr>");
       } else {
