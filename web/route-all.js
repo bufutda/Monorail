@@ -10,7 +10,7 @@ $(document).ready(function () {
       if(data.error === false) {
         $("#route-info tbody").empty();
         data = data.data;
-        for(var i = 0; i < data.length; i++;) {
+        for(var i = 0; i < data.length; i++) {
           $("#route-info tbody").append("<tr><td>"+data.rID+"</td><td>"+data.Start+"</td><td>"+data.End+"</td><td>"+data.Num_Stops+"</td></tr>");
         }
       } else {
