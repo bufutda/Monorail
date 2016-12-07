@@ -21,7 +21,7 @@ $(document).ready(function () {
     allowInput();
   }
 });
-}
+});
 function onError () {
   $("body").prepend("An error has occurrd.<br><br><br><br>")
 }
