@@ -1,27 +1,28 @@
 "use strict";
 var baseSite = "https://sa.watz.ky/monorail/api/";
 function doFunction () {
+  var name=document.getElementById("Query").value;
   clearAllInputs();
   preventInput();
   $.ajax( {
-    var name=document.getElementById("Query").value;
     type: "get";
     url: baseSite+"stop/find?q="+name;
     datatype: "json";
     success: function (data) {
       if(data.error === false) {
         $("#prev-stop tbody").empty();
+        data = data.data;
         for(var i = 0; i < data.length; i++) {
           $("#prev-stop tbody").append("<tr><td>"+data.No+"</td><td>"+data.Location+"</td><td>"+data.rID+"</td></tr>");
         }
-      }
-    } else {
+      } else {
       onError();
     }
   },
   complete:function(){
     allowInput();
-  })
+  }
+});
 }
 function onError () {
   clearAllInputs();

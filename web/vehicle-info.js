@@ -1,25 +1,26 @@
 "use strict";
 var baseSite = "https://sa.watz.ky/monorail/api/";
 function doFunction () {
+  var name=document.getElementById("ID").value;
   clearAllInputs();
   preventInput();
   $.ajax( {
-    var name=document.getElementById("ID").value;
-    type: "get";
-    url: baseSite+"vehicle/info?id="+name;
-    datatype: "json";
+    type: "get",
+    url: baseSite+"vehicle/info?id="+name,
+    datatype: "json",
     success: function (data) {
       if(data.error === false) {
+        data = data.data;
         $("#vehicle-info tbody").empty();
         $("#vehicle-info tbody").append("<tr><td>"+data.vID+"</td><td>"+data.capacity+"</td><td>"+data.rID+"</td></tr>");
-      }
-    } else {
+      } else {
       onError();
     }
   },
   complete:function(){
     allowInput();
-  })
+  }
+});
 }
 function onError () {
   clearAllInputs();

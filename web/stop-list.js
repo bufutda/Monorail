@@ -1,27 +1,28 @@
 "use strict";
 var baseSite = "https://sa.watz.ky/monorail/api/";
 function doFunction () {
+  var name=document.getElementById("Stop-Number").value;
   clearAllInputs();
   preventInput();
   $.ajax( {
-    var name=document.getElementById("Stop-Number").value;
-    type: "get";
-    url: baseSite+"route/stops?id="+name;
-    datatype: "json";
+    type: "get",
+    url: baseSite+"route/stops?id="+name,
+    datatype: "json",
     success: function (data) {
       if(data.error === false) {
         $("#stop-list tbody").empty();
+        data = data.data;
         for(var i = 0; i < data.length; i++) {
           $("#stop-info tbody").append("<tr><td>"+data[i].No+"</td><td>"+data[i].Location+"</td><td>"+data[i].rID+"</td></tr>");
         }
-      }
-    } else {
+      } else {
       onError();
     }
   },
   complete:function(){
     allowInput();
-  })
+  }
+});
 }
 function onError () {
   clearAllInputs();
