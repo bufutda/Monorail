@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="ca.mcnivenucalgary.daine.monorail.MainActivity"
+    android:background="@drawable/monorail">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome"
+        android:id="@+id/headerTxt"
+        android:textSize="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delays"
+        android:textAllCaps="false"
+        android:id="@+id/delaysButton"
+        android:layout_marginTop="50dp"
+        android:clickable="true"
+        android:onClick="delayActivity"
+        android:background="#7072ed"
+        android:layout_alignRight="@+id/vehiclesButton"
+        android:layout_alignEnd="@+id/vehiclesButton"
+        android:layout_alignLeft="@+id/headerTxt"
+        android:layout_alignStart="@+id/headerTxt"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Routes"
+        android:textAllCaps="false"
+        android:id="@+id/routesButton"
+        android:onClick="routeActivity"
+        android:background="#7072ed"
+        android:layout_alignLeft="@+id/stopsButton"
+        android:layout_alignStart="@+id/stopsButton"
+        android:layout_marginTop="350dp"
+        android:layout_alignRight="@+id/vehiclesButton"
+        android:layout_alignEnd="@+id/vehiclesButton"
+        android:textColor="#ffffff" />
+        android:clickable="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Stops"
+        android:textAllCaps="false"
+        android:id="@+id/stopsButton"
+        android:onClick="stopsActivity"
+        android:clickable="true"
+        android:background="#7072ed"
+        android:layout_alignLeft="@+id/vehiclesButton"
+        android:layout_alignStart="@+id/vehiclesButton"
+        android:layout_marginTop="250dp"
+        android:layout_alignRight="@+id/vehiclesButton"
+        android:layout_alignEnd="@+id/vehiclesButton"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Vehicles"
+        android:textAllCaps="false"
+        android:id="@+id/vehiclesButton"
+        android:onClick="vehicleActivity"
+        android:clickable="true"
+        android:layout_marginTop="150dp"
+        android:layout_alignRight="@+id/headerTxt"
+        android:layout_alignEnd="@+id/headerTxt"
+        android:background="#7072ed"
+        android:layout_alignLeft="@+id/headerTxt"
+        android:layout_alignStart="@+id/headerTxt"
+        android:textColor="#ffffff" />
+</RelativeLayout>

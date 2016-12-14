@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="ca.mcnivenucalgary.daine.monorail.DelayActivity"
+    android:background="@drawable/monorail">
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Go"
+        android:id="@+id/delayInfoIDbutt"
+        android:layout_alignBottom="@+id/delayInfoIDnumField"
+        android:layout_toRightOf="@+id/delayInfoIDtxt"
+        android:onClick="delayInfo"
+        android:layout_toEndOf="@+id/delayInfoIDtxt"
+        android:textColor="#ffffff"
+        android:background="#7072ed" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/delayInfoIDnumField"
+        android:hint="Delay ID"
+        android:textColorHint="#ffffff"
+        android:layout_marginBottom="84dp"
+        android:layout_above="@+id/allDelaysButt"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/delayInfoIDbutt"
+        android:layout_toStartOf="@+id/delayInfoIDbutt"
+        android:textColor="#ffffff" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Go"
+        android:id="@+id/allDelaysButt"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/textView2"
+        android:onClick="allDelays"
+        android:layout_toEndOf="@+id/textView2"
+        android:background="#7072ed"
+        android:textColor="#ffffff" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Go"
+        android:id="@+id/stopDelaysButt"
+        android:layout_alignBottom="@+id/stopDelaysNumStop"
+        android:layout_toLeftOf="@+id/allDelaysButt"
+        android:onClick="stopDelays"
+        android:layout_toStartOf="@+id/allDelaysButt"
+        android:textColor="#ffffff"
+        android:background="#7072ed" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:id="@+id/goBack"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:onClick="goBack"
+        android:layout_alignParentEnd="true"
+        android:background="#7072ed"
+        android:allowUndo="true"
+        android:textColor="#ffffff" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/stopDelaysNumStop"
+        android:hint="Stop ID"
+        android:textColorHint="#ffffff"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="82dp"
+        android:layout_alignRight="@+id/stopDelaysTxt"
+        android:layout_alignEnd="@+id/stopDelaysTxt"
+        android:textColor="#ffffff" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Find Delays at Stop"
+        android:id="@+id/stopDelaysTxt"
+        android:layout_above="@+id/stopDelaysButt"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textColor="#ffffff"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Find Info about all Delays"
+        android:id="@+id/textView2"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textColor="#ffffff"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Find Info about Delay"
+        android:id="@+id/delayInfoIDtxt"
+        android:layout_above="@+id/delayInfoIDbutt"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textColor="#ffffff"
+        android:textStyle="bold" />
+
+</RelativeLayout>

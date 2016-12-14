@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="ca.mcnivenucalgary.daine.monorail">
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="ca.mcnivenucalgary.daine.monorail.DelayActivity"
+            android:label="@string/app_name"
+        />
+        <activity
+            android:name="ca.mcnivenucalgary.daine.monorail.RouteActivity"
+            android:label="@string/app_name"
+        />
+        <activity
+            android:name="ca.mcnivenucalgary.daine.monorail.StopsActivity"
+            android:label="@string/app_name"
+        />
+        <activity
+            android:name="ca.mcnivenucalgary.daine.monorail.VehicleActivity"
+            android:label="@string/app_name"
+        />
+        <activity
+        android:name="ca.mcnivenucalgary.daine.monorail.AllDelays"
+        android:label="@string/app_name"
+        />
+        <activity
+            android:name="ca.mcnivenucalgary.daine.monorail.AllRoutes"
+            android:label="@string/app_name"
+        />
+        <activity
+            android:name="ca.mcnivenucalgary.daine.monorail.DelayInfo"
+            android:label="@string/app_name"
+        />
+        <activity
+            android:name="ca.mcnivenucalgary.daine.monorail.FirstStop"
+            android:label="@string/app_name"
+        />
+        <activity
+            android:name="ca.mcnivenucalgary.daine.monorail.LastStop"
+            android:label="@string/app_name"
+        />
+        <activity
+            android:name="ca.mcnivenucalgary.daine.monorail.NextStop"
+            android:label="@string/app_name"
+        />
+        <activity
+            android:name="ca.mcnivenucalgary.daine.monorail.PreviousStop"
+            android:label="@string/app_name"
+        />
+        <activity
+            android:name="ca.mcnivenucalgary.daine.monorail.RouteFromStop"
+            android:label="@string/app_name"
+        />
+        <activity
+            android:name="ca.mcnivenucalgary.daine.monorail.RoutesForType"
+            android:label="@string/app_name"
+        />
+        <activity
+            android:name="ca.mcnivenucalgary.daine.monorail.StopDelays"
+            android:label="@string/app_name"
+        />
+        <activity
+            android:name="ca.mcnivenucalgary.daine.monorail.StopInfo"
+            android:label="@string/app_name"
+        />
+        <activity
+            android:name="ca.mcnivenucalgary.daine.monorail.StopsFromRoute"
+            android:label="@string/app_name"
+        />
+        <activity
+            android:name="ca.mcnivenucalgary.daine.monorail.TravelTime"
+            android:label="@string/app_name"
+        />
+        <activity
+            android:name="ca.mcnivenucalgary.daine.monorail.TypesFromStop"
+            android:label="@string/app_name"
+        />
+        <activity
+            android:name="ca.mcnivenucalgary.daine.monorail.VehicleInfo"
+            android:label="@string/app_name"
+        />
+        <activity
+            android:name="ca.mcnivenucalgary.daine.monorail.VehicleTypesFromRoute"
+            android:label="@string/app_name"
+        />
+    </application>
+
+</manifest>

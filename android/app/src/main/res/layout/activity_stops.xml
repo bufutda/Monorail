@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/monorail"
+    tools:context="ca.mcnivenucalgary.daine.monorail.StopsActivity">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Vehicle Type of Stop"
+        android:textColor="#ffffff"
+        android:id="@+id/typeFromStopTxt"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textStyle="bold" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#7072ed"
+        android:text="Go"
+        android:textColor="#ffffff"
+        android:id="@+id/typeFromStopButt"
+        android:layout_below="@+id/typeFromStopTxt"
+        android:layout_alignRight="@+id/typeFromStopTxt"
+        android:onClick="vehicleTypesFromStopNum"
+        android:layout_alignEnd="@+id/typeFromStopTxt" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/typeFromStopField"
+        android:layout_alignBottom="@+id/typeFromStopButt"
+        android:layout_toLeftOf="@+id/typeFromStopButt"
+        android:layout_toStartOf="@+id/typeFromStopButt"
+        android:hint="Stop Num"
+        android:textColorHint="#ffffff"
+        android:textColor="#ffffff"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Find Previous Stop"
+        android:textColor="#ffffff"
+        android:id="@+id/prevStopTxt"
+        android:layout_marginTop="29dp"
+        android:layout_below="@+id/typeFromStopField"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textStyle="bold" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#7072ed"
+        android:text="Go"
+        android:textColor="#ffffff"
+        android:id="@+id/prevStopButt"
+        android:layout_below="@+id/prevStopTxt"
+        android:layout_alignRight="@+id/typeFromStopTxt"
+        android:onClick="previousStop"
+        android:layout_alignEnd="@+id/typeFromStopTxt" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/prevStopField"
+        android:layout_alignBottom="@+id/prevStopButt"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:hint="Stop Num"
+        android:textColorHint="#ffffff"
+        android:textColor="#ffffff"
+        android:layout_toStartOf="@+id/prevStopButt"
+        android:layout_toLeftOf="@+id/prevStopButt" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Find Next Stop"
+        android:textColor="#ffffff"
+        android:id="@+id/nextStopTxt"
+        android:layout_below="@+id/prevStopButt"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="27dp"
+        android:textStyle="bold" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#7072ed"
+        android:text="Go"
+        android:textColor="#ffffff"
+        android:id="@+id/nextStopButt"
+        android:layout_below="@+id/nextStopTxt"
+        android:layout_alignRight="@+id/typeFromStopTxt"
+        android:onClick="nextStop"
+        android:layout_alignEnd="@+id/typeFromStopTxt" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/nextStopField"
+        android:layout_alignBottom="@+id/nextStopButt"
+        android:layout_toLeftOf="@+id/nextStopButt"
+        android:layout_toStartOf="@+id/nextStopButt"
+        android:hint="Stop Num"
+        android:textColor="#ffffff"
+        android:textColorHint="#ffffff"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Stop Info"
+        android:textColor="#ffffff"
+        android:id="@+id/stopInfoTxt"
+        android:layout_below="@+id/nextStopButt"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="30dp"
+        android:textStyle="bold" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#7072ed"
+        android:text="Go"
+        android:textColor="#ffffff"
+        android:id="@+id/stopInfoButt"
+        android:layout_below="@+id/stopInfoTxt"
+        android:layout_alignRight="@+id/typeFromStopTxt"
+        android:onClick="stopInfo"
+        android:layout_alignEnd="@+id/typeFromStopTxt" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/stopInfoField"
+        android:layout_alignBottom="@+id/stopInfoButt"
+        android:layout_toLeftOf="@+id/stopInfoButt"
+        android:layout_toStartOf="@+id/stopInfoButt"
+        android:hint="Stop Num"
+        android:textColor="#ffffff"
+        android:textColorHint="#ffffff"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Time Between Stops"
+        android:textColor="#ffffff"
+        android:id="@+id/timeStopsTxt"
+        android:layout_below="@+id/stopInfoField"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="27dp"
+        android:textStyle="bold" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#7072ed"
+        android:text="Go"
+        android:textColor="#ffffff"
+        android:id="@+id/timeStopsButt"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/timeStopsTxt"
+        android:onClick="travelTime"
+        android:layout_toEndOf="@+id/timeStopsTxt" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/timeStopsFromField"
+        android:layout_alignTop="@+id/timeStopsButt"
+        android:hint="From"
+        android:textColor="#ffffff"
+        android:textColorHint="#ffffff"
+        android:layout_alignRight="@+id/stopInfoTxt"
+        android:layout_alignEnd="@+id/stopInfoTxt" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/timeStopsToField"
+        android:layout_alignTop="@+id/timeStopsFromField"
+        android:layout_toRightOf="@+id/timeStopsFromField"
+        android:hint="To"
+        android:textColor="#ffffff"
+        android:textColorHint="#ffffff"
+        android:layout_alignRight="@+id/prevStopTxt"
+        android:layout_alignEnd="@+id/prevStopTxt" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#7072ed"
+        android:text="Back"
+        android:textColor="#ffffff"
+        android:id="@+id/goBack"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:onClick="goBack"
+        android:layout_alignParentEnd="true" />
+</RelativeLayout>
