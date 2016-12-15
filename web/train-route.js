@@ -1,17 +1,18 @@
 "use strict";
 var baseSite = "https://sa.watz.ky/monorail/api/";
-function doFunction () {
-  var name=document.getElementById("ID").value;
+$(document).ready(function () {
   preventInput();
   $.ajax( {
     type: "get",
-    url: baseSite+"vehicle/info?id="+name,
+    url: baseSite+"vehicle/route?type=train",
     datatype: "json",
     success: function (data) {
       if(data.error === false) {
-        data = data.data[0];
-        $("#vehicle-info tbody").empty();
-        $("#vehicle-info tbody").append("<tr><td>"+data.ID+"</td><td>"+data.Capacity+"</td><td>"+data.rID+"</td></tr>");
+        $("#route-info tbody").empty();
+        data = data.data;
+        for(var i = 0; i < data.length; i++) {
+          $("#route-info tbody").append("<tr><td>"+data[i].ID+"</td><td>"+data[i].rStart+"</td><td>"+data[i].rEnd+"</td><td>"+data[i].Num_stops+"</td></tr>");
+        }
       } else {
       onError();
     }
@@ -20,13 +21,9 @@ function doFunction () {
     allowInput();
   }
 });
-}
+});
 function onError () {
-  clearAllInputs();
   $("body").prepend("An error has occurrd.<br><br><br><br>")
-}
-function clearAllInputs () {
-  document.getElementById("ID").value = "";
 }
 function preventInput() {
   $("#inputPrevention").show();

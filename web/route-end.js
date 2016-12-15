@@ -2,7 +2,6 @@
 var baseSite = "https://sa.watz.ky/monorail/api/";
 function doFunction () {
   var name=document.getElementById("ID").value;
-  clearAllInputs();
   preventInput();
   $.ajax({
     type: "get",

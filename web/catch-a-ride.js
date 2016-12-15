@@ -3,11 +3,10 @@ var baseSite = "https://sa.watz.ky/monorail/api/";
 function doFunction () {
   var start=document.getElementById("Starting-Stop-Number").value;
   var end=document.getElementById("Ending-Stop-Number").value;
-  clearAllInputs();
   preventInput();
   $.ajax({
     type: "get",
-    url: baseSite+"stop/TimeTotal?stop="+start+"&stop="+end,
+    url: baseSite+"stop/TimeTotal?start="+start+"&stop="+end,
     datatype: "json",
     success: function (data) {
       if(data.error === false) {

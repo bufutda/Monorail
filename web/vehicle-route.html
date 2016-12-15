@@ -4,50 +4,30 @@
       <meta charset = "utf-8">
       <title> Vehicle Route </title>
       <script type = "text/javascript" src = "/resources/lib/jquery.min.js"> </script>
-      <script type = "text/javascript" src = "vehicle-route.js"> </script>
   <style>
-      #inputPrevention {
-        display: none;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        user-select: none;
-        -moz-user-select: none;
-        -webkit-user-select: none;
-        cursor: progress;
-        z-index: 5;
-      }
+    #inputPrevention {
+      display: none;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      user-select: none;
+      -moz-user-select: none;
+      -webkit-user-select: none;
+      cursor: progress;
+      z-index: 5;
+    }
   </style>
 </head>
   <body>
     <div id = "inputPrevention">
     </div>
-    <form>
-      Vehicle ID: <br>
-      <input type = "text" name = "ID" id = "ID"><br>
-      <input type = "button" value = "submit" onclick = "doFunction();">
-    </form>
-    <table id = "vehicle-info">
-        <thead>
-          <tr>
-            <td>
-              Route ID:
-            </td>
-            <td>
-              Route Start:
-            </td>
-            <td>
-              Route End:
-            </td>
-            <td>
-              Number of Stops
-            </td>
-          </tr>
-        </thead>
-        <tbody>
-        </tbody>
-      </table>
-    </body>
+    Vehicle type:
+    <br>
+    <br>
+    <a href="https://sa.watz.ky/monorail/train-route.html">Trains</a><br>
+    <br>
+    <a href="https://sa.watz.ky/monorail/bus-route.html">Buses</a>
+  </body>
 </html>

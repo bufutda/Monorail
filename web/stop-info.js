@@ -2,14 +2,13 @@
 var baseSite = "https://sa.watz.ky/monorail/api/";
 function doFunction () {
   var name=document.getElementById("Stop-Number").value;
-  clearAllInputs();
   preventInput();
   $.ajax( {
     type: "get",
     url: baseSite+"stop/info?no="+name,
     datatype: "json",
     success: function (data) {
-      if(data.error === false) {
+        if(data.error === false) {
         $("#stop-table tbody").empty();
         data = data.data;
         $("#stop-table tbody").append("<tr><td>"+data[0].No+"</td><td>"+data[0].Location+"</td><td>"+data[0].rID+"</td></tr>");

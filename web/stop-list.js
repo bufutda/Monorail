@@ -2,7 +2,6 @@
 var baseSite = "https://sa.watz.ky/monorail/api/";
 function doFunction () {
   var name=document.getElementById("Route-Number").value;
-  clearAllInputs();
   preventInput();
   $.ajax( {
     type: "get",
@@ -13,7 +12,7 @@ function doFunction () {
         $("#stop-list tbody").empty();
         data = data.data;
         for(var i = 0; i < data.length; i++) {
-          $("#stop-info tbody").append("<tr><td>"+data[i].No+"</td><td>"+data[i].Location+"</td><td>"+data[i].rID+"</td></tr>");
+          $("#stop-list tbody").append("<tr><td>"+data[i].No+"</td><td>"+data[i].Location+"</td><td>"+data[i].rID+"</td></tr>");
         }
       } else {
       onError();

@@ -10,11 +10,10 @@ function doFunction () {
   var end=new Date(date+" "+endTime);
   var stop=document.getElementById("stop").value;
   var meta=document.getElementById("meta").value;
-  clearAllInputs();
   preventInput();
   $.ajax( {
     type: "get",
-    url: baseSite+"delay/add?type=accident&origin="+origin+"&desc="+desc+"&start="+start+"&end="+end+"&stop="+stop="&meta="+meta,
+    url: baseSite+"delay/add?type=accident&origin="+origin+"&desc="+desc+"&start="+start.getTime()+"&end="+end.getTime()+"&stop="+stop="&meta="+meta,
     datatype: "json",
     success: function (data) {
       if(data.error === false) {

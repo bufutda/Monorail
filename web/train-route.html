@@ -2,9 +2,9 @@
 <html>
   <head>
       <meta charset = "utf-8">
-      <title> Stop List </title>
+      <title> Train Route </title>
       <script type = "text/javascript" src = "/resources/lib/jquery.min.js"> </script>
-      <script type = "text/javascript" src = "stop-list.js"> </script>
+      <script type = "text/javascript" src = "train-route.js"> </script>
   <style>
       #inputPrevention {
         display: none;
@@ -24,22 +24,20 @@
   <body>
     <div id = "inputPrevention">
     </div>
-    <form>
-      Route Number: <br>
-      <input type = "text" name = "Route Number" id = "Route-Number"><br>
-      <input type = "button" value = "submit" onclick = "doFunction();">
-    </form>
-    <table id = "stop-list">
+    <table id = "route-info">
         <thead>
           <tr>
             <td>
-              Stop Number:
-            </td>
-            <td>
-              Stop Name:
-            </td>
-            <td>
               Route ID:
+            </td>
+            <td>
+              Route Start:
+            </td>
+            <td>
+              Route End:
+            </td>
+            <td>
+              Number of Stops
             </td>
           </tr>
         </thead>
