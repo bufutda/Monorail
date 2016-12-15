@@ -13,7 +13,8 @@ function doFunction () {
       if(data.error === false) {
         data = data.data;
         $("#next-stop tbody").empty();
-        $("#next-stop tbody").append("<tr><td>"+start+"</td><td>"+end+"</td><td>"+data[0].Time+"</td></tr>");
+        var date = (new Date(data)).toString();
+        $("#next-stop tbody").append("<tr><td>"+start+"</td><td>"+end+"</td><td>"+date+"</td></tr>");
       } else {
         onError();
       }
