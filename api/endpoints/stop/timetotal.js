@@ -15,7 +15,7 @@ module.exports.hand = function (request, response, url, endpoint) {
                         db.e.emit("error", err);
                     } else {
                         var d = new Date();
-                        endpoint.data = d.getTime() - Math.abs(rows[1]["MAX(aTime)"] - rows[0]["MAX(aTime)"]);
+                        endpoint.data = d.getTime() + Math.abs(rows[1]["MAX(aTime)"] - rows[0]["MAX(aTime)"]);
                         Endpoint.end(response, endpoint);
                     }
                 });
