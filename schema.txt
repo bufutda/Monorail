@@ -1,111 +1,157 @@
-CREATE TABLE mrdb.Stop (
-    No int NOT NULL UNIQUE AUTO_INCREMENT,
-    Location varchar(255) NOT NULL,
-    rID int,
-    PRIMARY KEY (No),
-    FOREIGN KEY (rID) REFERENCES Route(ID) ON UPDATE CASCADE ON DELETE RESTRICT
-);
---after some data is added, the circular not null constraint
---between Stop and Route can be added
---ALTER TABLE Stop ALTER COLUMN rID int NOT NULL;
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+CREATE DATABASE IF NOT EXISTS `mrdb` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `mrdb`;
 
-CREATE TABLE mrdb.Train (
-    ID int NOT NULL UNIQUE,
-    Num_cars int NOT NULL,
-    PRIMARY KEY (ID),
-    FOREIGN KEY (ID) REFERENCES Vehicle(ID) ON UPDATE CASCADE ON DELETE RESTRICT,
-    CHECK (Num_cars < 5),
-    CHECK (Num_cars > 2)
-);
+CREATE TABLE IF NOT EXISTS `Accident` (
+  `dID` int(11) NOT NULL,
+  `Cause` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`dID`),
+  UNIQUE KEY `dID` (`dID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-CREATE TABLE mrdb.Bus (
-    ID int NOT NULL UNIQUE,
-    Plate varchar(255) NOT NULL UNIQUE,
-    Length int NOT NULL,
-    PRIMARY KEY (ID),
-    FOREIGN KEY (ID) REFERENCES Vehicle(ID) ON UPDATE CASCADE ON DELETE RESTRICT
-);
+CREATE TABLE IF NOT EXISTS `Arrives_At` (
+  `vID` int(11) NOT NULL,
+  `sNo` int(11) NOT NULL,
+  `aTime` bigint(255) NOT NULL,
+  PRIMARY KEY (`vID`,`sNo`),
+  UNIQUE KEY `uVS` (`vID`,`sNo`),
+  KEY `sNo` (`sNo`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-CREATE TABLE mrdb.Delay (
-    ID int NOT NULL UNIQUE AUTO_INCREMENT,
-    Origin varchar(255) NOT NULL,
-    Description varchar(255),
-    dStart int NOT NULL,
-    dEnd int,
-    sNo int NOT NULL,
-    PRIMARY KEY (ID),
-    FOREIGN KEY (sNo) REFERENCES Stop(No) ON UPDATE CASCADE ON DELETE RESTRICT
-);
+CREATE TABLE IF NOT EXISTS `Bus` (
+  `ID` int(11) NOT NULL,
+  `Plate` varchar(255) NOT NULL,
+  `Length` int(11) NOT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `ID` (`ID`),
+  UNIQUE KEY `Plate` (`Plate`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-CREATE TABLE mrdb.Route (
-    ID int NOT NULL UNIQUE AUTO_INCREMENT,
-    rStart int NOT NULL,
-    rEnd int NOT NULL,
-    Num_stops int NOT NULL,
-    PRIMARY KEY (ID),
-    FOREIGN KEY (rStart) REFERENCES Stop(No), ON UPDATE CASCADE ON DELETE RESTRICT
-    FOREIGN KEY (rEnd) REFERENCES Stop(No) ON UPDATE CASCADE ON DELETE RESTRICT
-);
+CREATE TABLE IF NOT EXISTS `Delay` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Origin` varchar(255) NOT NULL,
+  `Description` varchar(255) DEFAULT NULL,
+  `dStart` bigint(255) NOT NULL,
+  `dEnd` bigint(255) DEFAULT NULL,
+  `sNo` int(11) NOT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `ID` (`ID`),
+  KEY `sNo` (`sNo`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
-CREATE TABLE mrdb.Maintenance (
-    dID int NOT NULL UNIQUE,
-    PRIMARY KEY (dID),
-    FOREIGN KEY (dID) REFERENCES Delay(ID) ON UPDATE CASCADE ON DELETE RESTRICT
-);
+CREATE TABLE IF NOT EXISTS `Departs_From` (
+  `vID` int(11) NOT NULL,
+  `sNo` int(11) NOT NULL,
+  `dTime` bigint(255) NOT NULL,
+  PRIMARY KEY (`vID`,`sNo`),
+  UNIQUE KEY `uVS` (`vID`,`sNo`),
+  KEY `sNo` (`sNo`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-CREATE TABLE mrdb.Environmental (
-    dID int NOT NULL UNIQUE,
-    Type varchar(255) NOT NULL,
-    PRIMARY KEY (dID),
-    FOREIGN KEY (dID) REFERENCES Delay(ID) ON UPDATE CASCADE ON DELETE RESTRICT
-);
+CREATE TABLE IF NOT EXISTS `Environmental` (
+  `dID` int(11) NOT NULL,
+  `Type` varchar(255) NOT NULL,
+  PRIMARY KEY (`dID`),
+  UNIQUE KEY `dID` (`dID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-CREATE TABLE mrdb.Accident (
-    dID int NOT NULL UNIQUE,
-    Cause varchar(255),
-    PRIMARY KEY (dID),
-    FOREIGN KEY (dID) REFERENCES Delay(ID) ON UPDATE CASCADE ON DELETE RESTRICT
-);
+CREATE TABLE IF NOT EXISTS `Lays_Between` (
+  `Prev_no` int(11) NOT NULL DEFAULT '0',
+  `Next_no` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`Prev_no`,`Next_no`),
+  UNIQUE KEY `uPN` (`Prev_no`,`Next_no`),
+  KEY `Next_no` (`Next_no`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-CREATE TABLE mrdb.Other (
-    dID int NOT NULL UNIQUE,
-    PRIMARY KEY (dID),
-    FOREIGN KEY (dID) REFERENCES Delay(ID) ON UPDATE CASCADE ON DELETE RESTRICT
-);
+CREATE TABLE IF NOT EXISTS `Maintenance` (
+  `dID` int(11) NOT NULL,
+  PRIMARY KEY (`dID`),
+  UNIQUE KEY `dID` (`dID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-CREATE TABLE mrdb.Lays_Between (
-    Prev_no int,
-    Next_no int,
-    PRIMARY KEY (Prev_no,Next_no),
-    FOREIGN KEY (Prev_no) REFERENCES Stop(No) ON UPDATE CASCADE ON DELETE RESTRICT,
-    FOREIGN KEY (Next_no) REFERENCES Stop(No) ON UPDATE CASCADE ON DELETE RESTRICT,
-    UNIQUE KEY uPN (Prev_no,Next_no)
-);
+CREATE TABLE IF NOT EXISTS `Other` (
+  `dID` int(11) NOT NULL,
+  PRIMARY KEY (`dID`),
+  UNIQUE KEY `dID` (`dID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-CREATE TABLE mrdb.Arrives_At (
-    vID int NOT NULL,
-    sNo int NOT NULL,
-    aTime int NOT NULL,
-    PRIMARY KEY (vId,sNo),
-    FOREIGN KEY (vId) REFERENCES Vehicle(ID) ON UPDATE CASCADE ON DELETE RESTRICT,
-    FOREIGN KEY (sNo) REFERENCES Stop(No) ON UPDATE CASCADE ON DELETE RESTRICT,
-    UNIQUE KEY uVS (vID,sNo)
-);
+CREATE TABLE IF NOT EXISTS `Route` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `rStart` int(11) NOT NULL,
+  `rEnd` int(11) NOT NULL,
+  `Num_stops` int(11) NOT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `ID` (`ID`),
+  KEY `rStart` (`rStart`),
+  KEY `rEnd` (`rEnd`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=203 ;
 
-CREATE TABLE mrdb.Departs_From (
-    vID int NOT NULL,
-    sNo int NOT NULL,
-    dTime int NOT NULL,
-    PRIMARY KEY (vId,sNo),
-    FOREIGN KEY (vId) REFERENCES Vehicle(ID) ON UPDATE CASCADE ON DELETE RESTRICT,
-    FOREIGN KEY (sNo) REFERENCES Stop(No) ON UPDATE CASCADE ON DELETE RESTRICT,
-    UNIQUE KEY uVS (vID,sNo)
-);
+CREATE TABLE IF NOT EXISTS `Stop` (
+  `No` int(11) NOT NULL AUTO_INCREMENT,
+  `Location` varchar(255) NOT NULL,
+  `rID` int(11) NOT NULL,
+  PRIMARY KEY (`No`),
+  UNIQUE KEY `No` (`No`),
+  KEY `rID` (`rID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
 
-CREATE TABLE mrdb.Vehicle (
-    ID int NOT NULL UNIQUE AUTO_INCREMENT,
-    Capacity int NOT NULL,
-    rID int NOT NULL,
-    PRIMARY KEY (rID),
-    FOREIGN KEY (rID) REFERENCES Route(ID) ON UPDATE CASCADE ON DELETE RESTRICT
-);
+CREATE TABLE IF NOT EXISTS `Train` (
+  `ID` int(11) NOT NULL,
+  `Num_cars` int(11) NOT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `ID` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE IF NOT EXISTS `Vehicle` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Capacity` int(11) NOT NULL,
+  `rID` int(11) NOT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `ID` (`ID`),
+  KEY `rID` (`rID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+
+ALTER TABLE `Accident`
+  ADD CONSTRAINT `Accident_ibfk_1` FOREIGN KEY (`dID`) REFERENCES `Delay` (`ID`) ON UPDATE CASCADE;
+
+ALTER TABLE `Arrives_At`
+  ADD CONSTRAINT `Arrives_At_ibfk_1` FOREIGN KEY (`vID`) REFERENCES `Vehicle` (`ID`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `Arrives_At_ibfk_2` FOREIGN KEY (`sNo`) REFERENCES `Stop` (`No`) ON UPDATE CASCADE;
+
+ALTER TABLE `Bus`
+  ADD CONSTRAINT `Bus_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `Vehicle` (`ID`) ON UPDATE CASCADE;
+
+ALTER TABLE `Delay`
+  ADD CONSTRAINT `Delay_ibfk_1` FOREIGN KEY (`sNo`) REFERENCES `Stop` (`No`) ON UPDATE CASCADE;
+
+ALTER TABLE `Departs_From`
+  ADD CONSTRAINT `Departs_From_ibfk_1` FOREIGN KEY (`vID`) REFERENCES `Vehicle` (`ID`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `Departs_From_ibfk_2` FOREIGN KEY (`sNo`) REFERENCES `Stop` (`No`) ON UPDATE CASCADE;
+
+ALTER TABLE `Environmental`
+  ADD CONSTRAINT `Environmental_ibfk_1` FOREIGN KEY (`dID`) REFERENCES `Delay` (`ID`) ON UPDATE CASCADE;
+
+ALTER TABLE `Lays_Between`
+  ADD CONSTRAINT `Lays_Between_ibfk_1` FOREIGN KEY (`Prev_no`) REFERENCES `Stop` (`No`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `Lays_Between_ibfk_2` FOREIGN KEY (`Next_no`) REFERENCES `Stop` (`No`) ON UPDATE CASCADE;
+
+ALTER TABLE `Maintenance`
+  ADD CONSTRAINT `Maintenance_ibfk_1` FOREIGN KEY (`dID`) REFERENCES `Delay` (`ID`) ON UPDATE CASCADE;
+
+ALTER TABLE `Other`
+  ADD CONSTRAINT `Other_ibfk_1` FOREIGN KEY (`dID`) REFERENCES `Delay` (`ID`) ON UPDATE CASCADE;
+
+ALTER TABLE `Route`
+  ADD CONSTRAINT `Route_ibfk_1` FOREIGN KEY (`rStart`) REFERENCES `Stop` (`No`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `Route_ibfk_2` FOREIGN KEY (`rEnd`) REFERENCES `Stop` (`No`) ON UPDATE CASCADE;
+
+ALTER TABLE `Stop`
+  ADD CONSTRAINT `Stop_ibfk_1` FOREIGN KEY (`rID`) REFERENCES `Route` (`ID`) ON UPDATE CASCADE;
+
+ALTER TABLE `Train`
+  ADD CONSTRAINT `Train_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `Vehicle` (`ID`) ON UPDATE CASCADE;
+
+ALTER TABLE `Vehicle`
+  ADD CONSTRAINT `Vehicle_ibfk_1` FOREIGN KEY (`rID`) REFERENCES `Route` (`ID`) ON UPDATE CASCADE;

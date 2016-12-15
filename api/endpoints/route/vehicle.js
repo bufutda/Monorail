@@ -13,7 +13,7 @@ module.exports.hand = function (request, response, url, endpoint) {
                     Endpoint.end(response, endpoint);
                     return;
                 } else {
-                    db.query("", function (err, rows, feilds) {
+                    db.query("SELECT * FROM Train AS T WHERE T.ID IN (SELECT V.ID FROM (Vehicle AS V JOIN Route AS R ON V.rID = R.ID) WHERE V.rID = " + db.escape(url.query.id) + ");", function (err, rows, feilds) {
                         if (err) {
                             db.e.emit("error", err);
                         } else if (rows.length) {
