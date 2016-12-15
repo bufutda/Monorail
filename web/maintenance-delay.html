@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset = "utf-8">
+      <title> Route Start </title>
+      <script type = "text/javascript" src = "/resources/lib/jquery.min.js"> </script>
+      <script type = "text/javascript" src = "route-start.js"> </script>
+  <style>
+      #inputPrevention {
+        display: none;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        cursor: progress;
+        z-index: 5;
+      }
+  </style>
+</head>
+  <body>
+    <div id = inputPrevention>
+    </div>
+    <form>
+      Route ID: <br>
+      <input type = "text" name = "type" id = "type"><br>
+      <input type = "text" name = "origin" id = "origin"><br>
+      <input type = "text" name = "description" id = "desc"><br>
+      <input type = "date" name = "date" id = "date">
+      <input type = "start" name ="start time" id = "start">
+      <input type = "time" name = "end time" id = "end">
+      <input type = "text" name = "start" id = "start"><br>
+      <input type = "text" name = "end" id = "end"><br>
+      <input type = "text" name = "stop" id = "stop"><br>
+      <input type = "button" value = "submit" onclick = "doFunction();">
+    </form>
+    <table id = "stop-info">
+        <thead>
+          <tr>
+            <td>
+              Stop Number:
+            </td>
+            <td>
+              Stop Location:
+            </td>
+            <td>
+              Route ID:
+            </td>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+</html>

@@ -13,7 +13,7 @@ function doFunction () {
       if(data.error === false) {
         data = data.data;
         $("#next-stop tbody").empty();
-        $("#next-stop tbody").append("<tr><td>"+start+"</td><td>"+end+"</td><td>"+data.Time+"</td></tr>");
+        $("#next-stop tbody").append("<tr><td>"+start+"</td><td>"+end+"</td><td>"+data[0].Time+"</td></tr>");
       } else {
         onError();
       }

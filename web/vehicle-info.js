@@ -10,7 +10,7 @@ function doFunction () {
     datatype: "json",
     success: function (data) {
       if(data.error === false) {
-        data = data.data;
+        data = data.data[0];
         $("#vehicle-info tbody").empty();
         $("#vehicle-info tbody").append("<tr><td>"+data.vID+"</td><td>"+data.capacity+"</td><td>"+data.rID+"</td></tr>");
       } else {

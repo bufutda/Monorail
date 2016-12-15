@@ -10,9 +10,9 @@ function doFunction () {
     datatype: "json",
     success: function (data) {
       if(data.error === false) {
-        $("#stop-info tbody").empty();
+        $("#stop-table tbody").empty();
         data = data.data;
-        $("#stop-info tbody").append("<tr><td>"+data.No+"</td><td>"+data.Location+"</td><td>"+data.rID+"</td></tr>");
+        $("#stop-table tbody").append("<tr><td>"+data[0].No+"</td><td>"+data[0].Location+"</td><td>"+data[0].rID+"</td></tr>");
       } else {
       onError();
     }

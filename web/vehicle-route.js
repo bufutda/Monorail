@@ -11,7 +11,7 @@ function doFunction () {
     success: function (data) {
       if(data.error === false) {
         $("#vehicle-info tbody").empty();
-        data = data.data;
+        data = data.data[0];
         $("#vehicle-info tbody").append("<tr><td>"+data.rID+"</td><td>"+data.Start+"</td><td>"+data.End+"</td><td>"+data.Num_Stops+"</td></tr>");
       } else {
         onError();

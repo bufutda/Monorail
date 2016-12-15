@@ -1,7 +1,7 @@
 "use strict";
 var baseSite = "https://sa.watz.ky/monorail/api/";
 function doFunction () {
-  var name=document.getElementById("Stop-Number").value;
+  var name=document.getElementById("Route-Number").value;
   clearAllInputs();
   preventInput();
   $.ajax( {
@@ -29,7 +29,7 @@ function onError () {
   $("body").prepend("An error has occurrd.<br><br><br><br>")
 }
 function clearAllInputs () {
-  document.getElementById("Stop-Number").value = "";
+  document.getElementById("Route-Number").value = "";
 }
 function preventInput() {
   $("#inputPrevention").show();

@@ -11,7 +11,7 @@ $(document).ready(function () {
         $("#route-info tbody").empty();
         data = data.data;
         for(var i = 0; i < data.length; i++) {
-          $("#route-info tbody").append("<tr><td>"+data.rID+"</td><td>"+data.Start+"</td><td>"+data.End+"</td><td>"+data.Num_Stops+"</td></tr>");
+          $("#route-info tbody").append("<tr><td>"+data[i].rID+"</td><td>"+data[i].Start+"</td><td>"+data[i].End+"</td><td>"+data[i].Num_Stops+"</td></tr>");
         }
       } else {
       onError();
