@@ -9,11 +9,12 @@ function doFunction () {
   var endTime=document.getElementById("end").value;
   var end=new Date(date+" "+endTime);
   var stop=document.getElementById("stop").value;
+  var meta=document.getElementById("meta").value;
   clearAllInputs();
   preventInput();
   $.ajax( {
     type: "get",
-    url: baseSite+"delay/add?type=maintenance&origin="+origin+"&desc="+desc+"&start="+start+"&end="+end+"&stop="+stop,
+    url: baseSite+"delay/add?type=accident&origin="+origin+"&desc="+desc+"&start="+start+"&end="+end+"&stop="+stop="&meta="+meta,
     datatype: "json",
     success: function (data) {
       if(data.error === false) {
@@ -38,6 +39,7 @@ function clearAllInputs () {
   document.getElementById("start").value = "";
   document.getElementById("end").value = "";
   document.getElementById("stop").value = "";
+  document.getElementById("meta").value = "";
 }
 function preventInput() {
   $("#inputPrevention").show();

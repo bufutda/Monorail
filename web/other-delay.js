@@ -13,7 +13,7 @@ function doFunction () {
   preventInput();
   $.ajax( {
     type: "get",
-    url: baseSite+"delay/add?type=maintenance&origin="+origin+"&desc="+desc+"&start="+start+"&end="+end+"&stop="+stop,
+    url: baseSite+"delay/add?type=other&origin="+origin+"&desc="+desc+"&start="+start+"&end="+end+"&stop="+stop,
     datatype: "json",
     success: function (data) {
       if(data.error === false) {
