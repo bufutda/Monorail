@@ -10,7 +10,7 @@
 --/vehicle/info?id={id}
 --get vehicle tuples for a vehicle id
     SELECT * FROM Vehicle WHERE {id} = ID;
---TODO/vehicle/route?type={type}
+--/vehicle/route?type={type}
 --get all routes for a vehicle type
     if (type == "bus")
         SELECT R.ID, R.rStart, R.rEnd, R.Num_stops FROM (Bus NATURAL JOIN Vehicle) AS V JOIN Route AS R ON R.ID = V.rID;
@@ -18,7 +18,7 @@
         SELECT R.ID, R.rStart, R.rEnd, R.Num_stops FROM (Train NATURAL JOIN Vehicle) AS V JOIN Route AS R ON R.ID = V.rID;
     else
         Err;
---TODO/route/vehicle?id={id}
+--/route/vehicle?id={id}
 --get the vehicle type for a route id
     if ((SELECT * FROM Bus AS B WHERE B.ID IN (SELECT V.ID FROM (Vehicle AS V JOIN Route AS R ON V.rID = R.ID) WHERE V.rID = {id});).length)
         return "bus";
@@ -80,3 +80,12 @@
     DELAYTIME=SELECT D.dEnd-D.dStart as delDiff FROM DELAYS as D;
     DELAYSUM=SELECT SUM(delDiff) FROM DELAYTIME;
     TOTAL=FINAL+DELAYSUM;
+
+/delay/add
+    ?type={type}
+    &origin={origin}
+    &desc={desc} [o]
+    &start={starttime}
+    &end={endtime} [o]
+    &stop={stopnumber}
+    &meta={meta} [o]

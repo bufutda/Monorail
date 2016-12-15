@@ -1,9 +1,9 @@
 CREATE TABLE mrdb.Stop (
-    No int NOT NULL UNIQUE,
+    No int NOT NULL UNIQUE AUTO_INCREMENT,
     Location varchar(255) NOT NULL,
     rID int,
     PRIMARY KEY (No),
-    FOREIGN KEY (rID) REFERENCES Route(ID)
+    FOREIGN KEY (rID) REFERENCES Route(ID) ON UPDATE CASCADE ON DELETE RESTRICT
 );
 --after some data is added, the circular not null constraint
 --between Stop and Route can be added
@@ -13,7 +13,7 @@ CREATE TABLE mrdb.Train (
     ID int NOT NULL UNIQUE,
     Num_cars int NOT NULL,
     PRIMARY KEY (ID),
-    FOREIGN KEY (ID) REFERENCES Vehicle(ID),
+    FOREIGN KEY (ID) REFERENCES Vehicle(ID) ON UPDATE CASCADE ON DELETE RESTRICT,
     CHECK (Num_cars < 5),
     CHECK (Num_cars > 2)
 );
@@ -23,62 +23,62 @@ CREATE TABLE mrdb.Bus (
     Plate varchar(255) NOT NULL UNIQUE,
     Length int NOT NULL,
     PRIMARY KEY (ID),
-    FOREIGN KEY (ID) REFERENCES Vehicle(ID)
+    FOREIGN KEY (ID) REFERENCES Vehicle(ID) ON UPDATE CASCADE ON DELETE RESTRICT
 );
 
 CREATE TABLE mrdb.Delay (
-    ID int NOT NULL UNIQUE,
+    ID int NOT NULL UNIQUE AUTO_INCREMENT,
     Origin varchar(255) NOT NULL,
     Description varchar(255),
     dStart int NOT NULL,
     dEnd int,
     sNo int NOT NULL,
     PRIMARY KEY (ID),
-    FOREIGN KEY (sNo) REFERENCES Stop(No)
+    FOREIGN KEY (sNo) REFERENCES Stop(No) ON UPDATE CASCADE ON DELETE RESTRICT
 );
 
 CREATE TABLE mrdb.Route (
-    ID int NOT NULL UNIQUE,
+    ID int NOT NULL UNIQUE AUTO_INCREMENT,
     rStart int NOT NULL,
     rEnd int NOT NULL,
     Num_stops int NOT NULL,
     PRIMARY KEY (ID),
-    FOREIGN KEY (rStart) REFERENCES Stop(No),
-    FOREIGN KEY (rEnd) REFERENCES Stop(No)
+    FOREIGN KEY (rStart) REFERENCES Stop(No), ON UPDATE CASCADE ON DELETE RESTRICT
+    FOREIGN KEY (rEnd) REFERENCES Stop(No) ON UPDATE CASCADE ON DELETE RESTRICT
 );
 
 CREATE TABLE mrdb.Maintenance (
     dID int NOT NULL UNIQUE,
     PRIMARY KEY (dID),
-    FOREIGN KEY (dID) REFERENCES Delay(ID)
+    FOREIGN KEY (dID) REFERENCES Delay(ID) ON UPDATE CASCADE ON DELETE RESTRICT
 );
 
 CREATE TABLE mrdb.Environmental (
     dID int NOT NULL UNIQUE,
     Type varchar(255) NOT NULL,
     PRIMARY KEY (dID),
-    FOREIGN KEY (dID) REFERENCES Delay(ID)
+    FOREIGN KEY (dID) REFERENCES Delay(ID) ON UPDATE CASCADE ON DELETE RESTRICT
 );
 
 CREATE TABLE mrdb.Accident (
     dID int NOT NULL UNIQUE,
     Cause varchar(255),
     PRIMARY KEY (dID),
-    FOREIGN KEY (dID) REFERENCES Delay(ID)
+    FOREIGN KEY (dID) REFERENCES Delay(ID) ON UPDATE CASCADE ON DELETE RESTRICT
 );
 
 CREATE TABLE mrdb.Other (
     dID int NOT NULL UNIQUE,
     PRIMARY KEY (dID),
-    FOREIGN KEY (dID) REFERENCES Delay(ID)
+    FOREIGN KEY (dID) REFERENCES Delay(ID) ON UPDATE CASCADE ON DELETE RESTRICT
 );
 
 CREATE TABLE mrdb.Lays_Between (
     Prev_no int,
     Next_no int,
     PRIMARY KEY (Prev_no,Next_no),
-    FOREIGN KEY (Prev_no) REFERENCES Stop(No),
-    FOREIGN KEY (Next_no) REFERENCES Stop(No),
+    FOREIGN KEY (Prev_no) REFERENCES Stop(No) ON UPDATE CASCADE ON DELETE RESTRICT,
+    FOREIGN KEY (Next_no) REFERENCES Stop(No) ON UPDATE CASCADE ON DELETE RESTRICT,
     UNIQUE KEY uPN (Prev_no,Next_no)
 );
 
@@ -87,8 +87,8 @@ CREATE TABLE mrdb.Arrives_At (
     sNo int NOT NULL,
     aTime int NOT NULL,
     PRIMARY KEY (vId,sNo),
-    FOREIGN KEY (vId) REFERENCES Vehicle(ID),
-    FOREIGN KEY (sNo) REFERENCES Stop(No),
+    FOREIGN KEY (vId) REFERENCES Vehicle(ID) ON UPDATE CASCADE ON DELETE RESTRICT,
+    FOREIGN KEY (sNo) REFERENCES Stop(No) ON UPDATE CASCADE ON DELETE RESTRICT,
     UNIQUE KEY uVS (vID,sNo)
 );
 
@@ -97,15 +97,15 @@ CREATE TABLE mrdb.Departs_From (
     sNo int NOT NULL,
     dTime int NOT NULL,
     PRIMARY KEY (vId,sNo),
-    FOREIGN KEY (vId) REFERENCES Vehicle(ID),
-    FOREIGN KEY (sNo) REFERENCES Stop(No),
+    FOREIGN KEY (vId) REFERENCES Vehicle(ID) ON UPDATE CASCADE ON DELETE RESTRICT,
+    FOREIGN KEY (sNo) REFERENCES Stop(No) ON UPDATE CASCADE ON DELETE RESTRICT,
     UNIQUE KEY uVS (vID,sNo)
 );
 
 CREATE TABLE mrdb.Vehicle (
-    ID int NOT NULL UNIQUE,
+    ID int NOT NULL UNIQUE AUTO_INCREMENT,
     Capacity int NOT NULL,
     rID int NOT NULL,
     PRIMARY KEY (rID),
-    FOREIGN KEY (rID) REFERENCES Route(ID)
+    FOREIGN KEY (rID) REFERENCES Route(ID) ON UPDATE CASCADE ON DELETE RESTRICT
 );
