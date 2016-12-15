@@ -14,7 +14,7 @@ module.exports.hand = function (request, response, url, endpoint) {
             // query timeout
             var queryTimeout = setTimeout(function () {
                 cont.emit("done", true);
-            });
+            }, 5000);
             cont.on("done", function (force) {
                 if (done) {
                     if (queryTimeout) {
@@ -28,7 +28,6 @@ module.exports.hand = function (request, response, url, endpoint) {
                         clearTimeout(queryTimeout);
                         queryTimeout = 0;
                     }
-                    delete endpoint.data;
                     Endpoint.end(response, endpoint, 504, "Gateway timeout");
                     done = true;
                     return;
@@ -53,7 +52,7 @@ module.exports.hand = function (request, response, url, endpoint) {
                 endpoint.data.maintenance = rows;
                 cont.emit("done", false);
             });
-            db.query("SELECT * FROM ((mrdb.Delay AS D JOIN mrdb.Environment AS E ON D.ID = E.dID) JOIN mrdb.Stop AS S ON S.No = D.sNo) WHERE S.No = " + db.escape(url.query.no) + ";", function (err, rows, fields) {
+            db.query("SELECT * FROM ((mrdb.Delay AS D JOIN mrdb.Environmental AS E ON D.ID = E.dID) JOIN mrdb.Stop AS S ON S.No = D.sNo) WHERE S.No = " + db.escape(url.query.no) + ";", function (err, rows, fields) {
                 if (err) {
                     done = true;
                     db.e.emit("error", err);

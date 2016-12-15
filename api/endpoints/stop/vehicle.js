@@ -10,14 +10,13 @@ module.exports.hand = function (request, response, url, endpoint) {
                     db.e.emit("error", err);
                     return;
                 }
-                for (var i = 0; i < rows.length; i++) {
-                    (function (last) {
-                        // TODO: call /route/vehicle?id={rID}
-                    })(i === rows.length - 1);
+                if (rows.length) {
+                    url.query.id = rows[0].rID;
+                    registeredEndpoints.GET["/route/vehicle"].handler(request, response, url, endpoint);
+                } else {
+                    endpoint.data = null;
+                    Endpoint.end(response, endpoint);
                 }
-                // endpoint.data = rows;
-                Endpoint.end(response, endpoint);
-                return;
             });
         } else {
             Endpoint.end(response, endpoint, 400);

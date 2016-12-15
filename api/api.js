@@ -226,8 +226,15 @@ db.connect(function (err) {
     }
     log.std("connected as id " + db.threadId);
     log.std("Database ready.");
-    server.listen(PORT, function () {
-        log.std("Server listening on https://localhost:" + PORT + "/");
+    log.std("Loading mrdb...");
+    db.query("use mrdb;", function (err) {
+        if (err) {
+            db.e.emit("error", err);
+        } else {
+            server.listen(PORT, function () {
+                log.std("Server listening on https://localhost:" + PORT + "/");
+            });
+        }
     });
 });
 
