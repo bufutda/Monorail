@@ -44,6 +44,11 @@ public class PreviousStop extends AppCompatActivity
             responseView.setText(response);
             return;
         }
+        if("Please enter a number".equalsIgnoreCase(response))
+        {
+            responseView.setText(response);
+            return;
+        }
         char isError = response.charAt(9);
         if(isError == 't')
         {
@@ -129,6 +134,7 @@ public class PreviousStop extends AppCompatActivity
                 response = "There was an error";
             }
             Log.i("INFO", response);
+            parse(response);
         }
     }
 }

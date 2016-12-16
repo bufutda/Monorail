@@ -44,6 +44,11 @@ public class RoutesForType extends AppCompatActivity
             responseView.setText(response);
             return;
         }
+        if("Please Enter \"Bus\" or \"Train\"".equals(response))
+        {
+            responseView.setText(response);
+            return;
+        }
         char isError = response.charAt(9);
         if(isError == 't')
         {
@@ -130,8 +135,7 @@ public class RoutesForType extends AppCompatActivity
 
         protected void onPostExecute(String response)
         {
-            if(response == null)
-            {
+            if(response == null) {
                 response = "There was an error";
             }
             Log.i("INFO", response);

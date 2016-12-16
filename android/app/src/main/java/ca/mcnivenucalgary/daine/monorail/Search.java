@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.io.BufferedReader;
@@ -16,21 +17,19 @@ import java.net.URL;
 /**
  * Created by Daine on 11/24/2016.
  */
-public class TravelTime extends AppCompatActivity
+public class Search extends AppCompatActivity
 {
-    private String inputFrom;
-    private String inputTo;
+    private String input;
     private TextView responseView;
 
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
-        inputFrom = getIntent().getStringExtra("USER_FROM");
-        inputTo = getIntent().getStringExtra("USER_TO");
+        input = getIntent().getStringExtra("USER_INPUT");
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.travel_time);
+        setContentView(R.layout.search_ing);
 
-        responseView = (TextView)(findViewById(R.id.travelTimeTxt));
+        responseView = (TextView)(findViewById(R.id.searchInfoTxt));
         AsyncTask th = new BackgroundThread().execute();
     }
 
@@ -42,11 +41,6 @@ public class TravelTime extends AppCompatActivity
     private void parse(String response)
     {
         if("There was an error".equalsIgnoreCase(response))
-        {
-            responseView.setText(response);
-            return;
-        }
-        if("Please enter numbers for both".equalsIgnoreCase(response))
         {
             responseView.setText(response);
             return;
@@ -84,12 +78,6 @@ public class TravelTime extends AppCompatActivity
         {
             responseView.setText("No information Found");
         }
-        /*long unixSeconds = Long.parseLong(response);
-        Date date = new Date(unixSeconds);
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss z");
-        sdf.setTimeZone(TimeZone.getTimeZone("GMT-4"));
-        String formattedDate = sdf.format(date);
-        responseView.setText(formattedDate);*/
         return;
     }
 
@@ -99,22 +87,13 @@ public class TravelTime extends AppCompatActivity
 
         protected void onPreExecute()
         {
-            responseView.setText("Retreiving Information");
+            responseView.setText("Retrieving Information");
         }
 
         protected String doInBackground(Void... urls)
         {
             try{
-                Integer.parseInt(inputFrom);
-                Integer.parseInt(inputTo);
-            }catch(NumberFormatException e)
-            {
-                // Do nothing (for now, might do something else with this later)
-                return "Please enter numbers for both";
-            }
-            try{
-                URL url = new URL(MainActivity.API_URL + "/stop/timeTotal?start=" +
-                        inputFrom + "&stop=" + inputTo);
+                URL url = new URL(MainActivity.API_URL + "/stop/find?q=" + input);
                 HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
                 try{
                     BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(

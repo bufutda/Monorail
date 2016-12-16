@@ -44,6 +44,11 @@ public class VehicleTypesFromRoute extends AppCompatActivity
             responseView.setText(response);
             return;
         }
+        if("Please enter a number".equalsIgnoreCase(response))
+        {
+            responseView.setText(response);
+            return;
+        }
         char isError = response.charAt(9);
         if(isError == 't')
         {
@@ -99,7 +104,7 @@ public class VehicleTypesFromRoute extends AppCompatActivity
                 return "Please enter a number";
             }
             try{
-                URL url = new URL(MainActivity.API_URL + "/route/vehicle?no=" + input);
+                URL url = new URL(MainActivity.API_URL + "/route/vehicle?id=" + input);
                 HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
                 try{
                     BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(

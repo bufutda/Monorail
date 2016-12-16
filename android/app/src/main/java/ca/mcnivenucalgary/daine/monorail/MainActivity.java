@@ -34,8 +34,15 @@ public class MainActivity extends AppCompatActivity
         startActivity(intent);
     }
 
-    public void vehicleActivity(View v) {
+    public void vehicleActivity(View v)
+    {
         Intent intent = new Intent(this, VehicleActivity.class);
+        startActivity(intent);
+    }
+
+    public void searchActivity(View v)
+    {
+        Intent intent = new Intent(this, SearchActivity.class);
         startActivity(intent);
     }
 }

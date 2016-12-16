@@ -1,6 +1,7 @@
 package ca.mcnivenucalgary.daine.monorail;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -60,6 +61,13 @@ public class DelayActivity extends AppCompatActivity
         startActivity(intent);
     }
 
+    public void reportDelay(View v)
+    {
+        String url = "https://sa.watz.ky/monorail/add-delay.html";
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse(url));
+        startActivity(intent);
+    }
 
 
 }

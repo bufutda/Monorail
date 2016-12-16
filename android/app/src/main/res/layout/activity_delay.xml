@@ -31,13 +31,10 @@
         android:id="@+id/delayInfoIDnumField"
         android:hint="Delay ID"
         android:textColorHint="#ffffff"
-        android:layout_marginBottom="84dp"
-        android:layout_above="@+id/allDelaysButt"
+        android:textColor="#ffffff"
+        android:layout_below="@+id/delayInfoIDtxt"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_toLeftOf="@+id/delayInfoIDbutt"
-        android:layout_toStartOf="@+id/delayInfoIDbutt"
-        android:textColor="#ffffff" />
+        android:layout_alignParentStart="true" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -45,12 +42,12 @@
         android:layout_height="wrap_content"
         android:text="Go"
         android:id="@+id/allDelaysButt"
-        android:layout_centerVertical="true"
-        android:layout_toRightOf="@+id/textView2"
         android:onClick="allDelays"
-        android:layout_toEndOf="@+id/textView2"
         android:background="#7072ed"
-        android:textColor="#ffffff" />
+        android:textColor="#ffffff"
+        android:layout_alignBottom="@+id/textView2"
+        android:layout_toRightOf="@+id/textView2"
+        android:layout_toEndOf="@+id/textView2" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -86,13 +83,10 @@
         android:id="@+id/stopDelaysNumStop"
         android:hint="Stop ID"
         android:textColorHint="#ffffff"
-        android:layout_alignParentBottom="true"
+        android:textColor="#ffffff"
+        android:layout_below="@+id/stopDelaysTxt"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="82dp"
-        android:layout_alignRight="@+id/stopDelaysTxt"
-        android:layout_alignEnd="@+id/stopDelaysTxt"
-        android:textColor="#ffffff" />
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -100,11 +94,11 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Find Delays at Stop"
         android:id="@+id/stopDelaysTxt"
-        android:layout_above="@+id/stopDelaysButt"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:textColor="#ffffff"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -112,11 +106,12 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Find Info about all Delays"
         android:id="@+id/textView2"
-        android:layout_centerVertical="true"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:layout_below="@+id/delayInfoIDnumField"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:textColor="#ffffff"
-        android:textStyle="bold" />
+        android:layout_marginTop="45dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -124,10 +119,36 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Find Info about Delay"
         android:id="@+id/delayInfoIDtxt"
-        android:layout_above="@+id/delayInfoIDbutt"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:layout_alignBottom="@+id/goBack"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Report a Delay"
+        android:id="@+id/reportaDelayTxt"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:layout_marginBottom="80dp" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Go"
+        android:id="@+id/reportDelayButton"
+        android:onClick="reportDelay"
+        android:background="#7072ed"
         android:textColor="#ffffff"
-        android:textStyle="bold" />
+        android:layout_alignBottom="@+id/reportaDelayTxt"
+        android:layout_toLeftOf="@+id/delayInfoIDbutt"
+        android:layout_toStartOf="@+id/delayInfoIDbutt" />
 
 </RelativeLayout>

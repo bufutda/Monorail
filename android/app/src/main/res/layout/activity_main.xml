@@ -45,7 +45,7 @@
         android:background="#7072ed"
         android:layout_alignLeft="@+id/stopsButton"
         android:layout_alignStart="@+id/stopsButton"
-        android:layout_marginTop="350dp"
+        android:layout_marginTop="320dp"
         android:layout_alignRight="@+id/vehiclesButton"
         android:layout_alignEnd="@+id/vehiclesButton"
         android:textColor="#ffffff" />
@@ -62,7 +62,7 @@
         android:background="#7072ed"
         android:layout_alignLeft="@+id/vehiclesButton"
         android:layout_alignStart="@+id/vehiclesButton"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="230dp"
         android:layout_alignRight="@+id/vehiclesButton"
         android:layout_alignEnd="@+id/vehiclesButton"
         android:textColor="#ffffff" />
@@ -75,11 +75,27 @@
         android:id="@+id/vehiclesButton"
         android:onClick="vehicleActivity"
         android:clickable="true"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="140dp"
         android:layout_alignRight="@+id/headerTxt"
         android:layout_alignEnd="@+id/headerTxt"
         android:background="#7072ed"
         android:layout_alignLeft="@+id/headerTxt"
         android:layout_alignStart="@+id/headerTxt"
         android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Search"
+        android:textAllCaps="false"
+        android:id="@+id/searchButton"
+        android:onClick="searchActivity"
+        android:clickable="true"
+        android:background="#7072ed"
+        android:textColor="#ffffff"
+        android:layout_marginTop="410dp"
+        android:layout_alignRight="@+id/routesButton"
+        android:layout_alignEnd="@+id/routesButton"
+        android:layout_alignLeft="@+id/routesButton"
+        android:layout_alignStart="@+id/routesButton" />
 </RelativeLayout>
